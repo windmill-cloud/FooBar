@@ -69,8 +69,7 @@ public class MaximumKProduct {
         return result;
     }
 
-
-
+    
     public static void main(String[] arg) {
         MaximumKProduct a = new MaximumKProduct();
         System.out.println(a.maxK_Product(new Integer[]{-1, 2, 3, 5, -9}, 3));
