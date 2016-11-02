@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import structures.TreeNode;
+=======
+package binarytree;
+
+import stuctures.TreeNode;
+>>>>>>> 92235e143f65635d8a17a3d673c88ae92af18509
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -44,5 +50,28 @@ public class BinaryTreeLevelOrderTraversal {
             rst.add(list);
         }
         return rst;
+    }
+
+    public int maxDepth(TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int count = 0;
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            for(int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if(node.left != null) {
+                    queue.offer(node.left);
+                }
+                if(node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+            count++;
+        }
+        return count;
     }
 }

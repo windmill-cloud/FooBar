@@ -1,4 +1,6 @@
-import structures.TreeNode;
+package binarytree;
+
+import stuctures.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

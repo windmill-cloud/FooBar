@@ -1,6 +1,5 @@
-/**
- * Created by Christina on 2/19/16.
- */
+package strings;
+
 public class ValidPalindrome {
     /**
      * use two pointers to iterate string from the start and the end
@@ -27,6 +26,18 @@ public class ValidPalindrome {
                 right--;
             }
             if (c[left++] != c[right--]) return false;
+        }
+        return true;
+    }
+
+    public boolean isPalindromeReplace(String s) {
+        String t = s.trim().replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+        int left = 0;
+        int right = t.length()-1;
+        while(left < right){
+            //while( left < right && !Character.isLetterOrDigit(t.charAt(left))) left++;
+            //while(left< right && ! Character.isLetterOrDigit(t.charAt(right))) right--;
+            if(t.charAt(left++) != t.charAt(right--)) return false;
         }
         return true;
     }
