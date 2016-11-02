@@ -4,6 +4,31 @@ package strings;
  * Created by Christina on 1/6/16.
  */
 public class CountAndSay {
+
+    public String countAndSayx(int n) {
+        if(n <= 1) return "1";
+        String ans = "1";
+
+        for(int i = 2; i <= n; i++){
+            System.out.println(ans);
+            int count = 1;
+            char c = ans.charAt(0);
+            StringBuilder sb = new StringBuilder();
+            for(int j = 1; j < ans.length(); j++){
+                if(ans.charAt(j) != c){
+                    sb.append(count);
+                    sb.append(c);
+                    count = 1;
+                    c = ans.charAt(j);
+                }else{
+                    count++;
+                }
+            }
+            sb.append(count); sb.append(c);
+            ans = sb.toString();
+        }
+        return ans;
+    }
     /**
      * iterate the ret for the last number
      * count the duplicated number until the character not equals the former one
