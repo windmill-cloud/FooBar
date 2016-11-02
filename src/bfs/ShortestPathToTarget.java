@@ -29,11 +29,11 @@ public class ShortestPathToTarget {
         while (!que.isEmpty()) {
             int size = que.size();
             ret++;
-            while (size-- != 0) {
+            for(int i = 0; i < size; i++) {
                 int currPos = que.poll(), currX = currPos / n, currY = currPos % n;
                 visited[currPos] = true;
-                for (int i = 0; i < move.length; i++) {
-                    int nextX = currX + move[i][0], nextY = currY + move[i][1], nextPos = nextX * n + nextY;
+                for (int k = 0; k < move.length; k++) {
+                    int nextX = currX + move[k][0], nextY = currY + move[k][1], nextPos = nextX * n + nextY;
                     if (nextX == endX && nextY == endY) {return ret;}
                     if (nextX < 0 || nextX >= m || nextY < 0 || nextY >= n ||
                             visited[nextPos] || board[nextX][nextY] == 1) {continue;}
@@ -43,8 +43,6 @@ public class ShortestPathToTarget {
         }
         return -1;
     }
-
-
 
 
 

@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import structures.TreeNode;
-=======
 package binarytree;
 
-import stuctures.TreeNode;
->>>>>>> 92235e143f65635d8a17a3d673c88ae92af18509
+import structures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

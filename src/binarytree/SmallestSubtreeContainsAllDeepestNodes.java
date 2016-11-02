@@ -1,3 +1,5 @@
+package binarytree;
+
 import structures.TreeNode;
 
 import java.util.HashMap;

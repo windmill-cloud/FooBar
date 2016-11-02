@@ -1,3 +1,5 @@
+package adhoc;
+
 import java.util.HashMap;
 import java.util.Map;
 
