@@ -1,10 +1,10 @@
+package idontknow;
+import structures.IntFileIterator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Christina on 2/19/16.
- */
+
 public class FileCompare {
 
     /**

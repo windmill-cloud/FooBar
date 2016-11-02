@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by Christina on 2/21/16.
- */
 public class WordBreak {
     /**
      * use dp

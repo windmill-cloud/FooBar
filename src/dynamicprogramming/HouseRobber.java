@@ -1,3 +1,7 @@
+package dynamicprogramming;
+
+import structures.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +23,45 @@ public class HouseRobber {
         return Math.max(nums[len - 1], nums[len - 2]);
     }
 
+    public int robII(int[] nums) {
+        if(nums == null) return 0;
+
+        int n = nums.length;
+        if(n == 0) return 0;
+        if(n == 1) return nums[0];
+        if(n == 2) return Math.max(nums[0], nums[1]);
+        return Math.max(helper(nums, 0, n-2), helper(nums, 1, n-1));
+    }
+
+    private int helper(int[] nums, int start, int end){
+        int pre = 0, cur = 0;
+
+        for(int i = start; i <=end; i++){
+            int temp = Math.max(pre + nums[i], cur);
+            pre = cur;
+            cur = temp;
+        }
+        return cur;
+    }
+
+    public int robIII(TreeNode root) {
+        int[] dp = helper(root);
+        return Math.max(dp[0], dp[1]);
+    }
+
+    // dp[0] => not rob this level
+    // dp[1] => rob this level, have to not rob lower level
+
+    public int[] helper(TreeNode root){
+        if(root == null) return new int[]{0,0};
+        int[] left = helper(root.left);
+        int[] right = helper(root.right);
+
+        int[] dp = new int[2];
+        dp[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        dp[1] = left[0] + root.val + right[0];
+        return dp;
+    }
 
     public List<Integer> houseRobberGetPos(int[] nums) {
         if (nums.length == 0) {

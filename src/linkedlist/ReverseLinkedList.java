@@ -1,6 +1,6 @@
 package linkedlist;
 
-import stuctures.ListNode;
+import structures.ListNode;
 
 /**
  * Created by Christina on 1/7/16.

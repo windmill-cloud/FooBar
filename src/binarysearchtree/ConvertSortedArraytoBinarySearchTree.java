@@ -1,6 +1,6 @@
 package binarysearchtree;
 
-import stuctures.TreeNode;
+import structures.TreeNode;
 
 /**
  * Created by Christina on 2/22/16.

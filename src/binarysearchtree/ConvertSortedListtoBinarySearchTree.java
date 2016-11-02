@@ -1,5 +1,5 @@
-import stuctures.ListNode;
-import stuctures.TreeNode;
+import structures.ListNode;
+import structures.TreeNode;
 
 /**
  * Created by Christina on 2/22/16.

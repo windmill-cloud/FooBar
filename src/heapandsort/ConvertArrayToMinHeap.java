@@ -1,4 +1,4 @@
-import stuctures.TreeNode;
+import structures.TreeNode;
 
 /**
  * Created by Christina on 3/2/16.

@@ -1,11 +1,23 @@
-/**
- * Created by Christina on 3/3/16.
- */
+package arrays;
+
 public class MaximumSubarray {
     /**
      *
      *
      * */
+
+    public int maxSubArrayOpt(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int max = Integer.MIN_VALUE, sum = 0;
+
+        for (int i = 0; i <nums.length; i++){
+            sum += nums[i];
+            max = Math.max(max, sum);
+            sum = Math.max(sum, 0);
+        }
+        return max;
+    }
+
     public int maxSubArray(int[] nums) {
         if (nums.length < 1) return 0;
         int localMax = nums[0], globalMax = nums[0];

@@ -1,4 +1,4 @@
-import stuctures.Interval;
+import structures.Interval;
 
 import java.util.*;
 

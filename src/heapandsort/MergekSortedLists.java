@@ -1,4 +1,4 @@
-import stuctures.ListNode;
+import structures.ListNode;
 
 import java.util.*;
 
