@@ -77,6 +77,46 @@ public class CourseSchedule {
         return true;
     }
 
+    public int[] courseSchedule(int numCourses, int[][] prerequisites) {
+        List<Set<Integer>> adjLists = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) {
+            adjLists.add(new HashSet<>());
+        }
+
+        for (int[] prerequisite : prerequisites) {
+            adjLists.get(prerequisite[1]).add(prerequisite[0]);
+        }
+
+        int[] indegrees = new int[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            for (int x : adjLists.get(i)) {
+                indegrees[x]++;
+            }
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (indegrees[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        int[] res = new int[numCourses];
+        int count = 0;
+        while (!queue.isEmpty()) {
+            int cur = queue.poll();
+            for (int x : adjLists.get(cur)) {
+                indegrees[x]--;
+                if (indegrees[x] == 0) {
+                    queue.offer(x);
+                }
+            }
+            res[count++] = cur;
+        }
+
+        if (count == numCourses) return res;
+        return new int[0];
+    }
 
     public static void main(String[] args) {
         CourseSchedule a = new CourseSchedule();
