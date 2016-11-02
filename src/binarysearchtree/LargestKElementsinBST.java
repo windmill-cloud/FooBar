@@ -32,6 +32,23 @@ public class LargestKElementsinBST {
         return ret;
     }
 
+    public static int kthSmallest(TreeNode root, int k) {
+        int i = 0;
+        TreeNode p = root;
+        LinkedList<TreeNode> s = new LinkedList<>();
+        while(p != null || ! s.isEmpty()){
+            while(p != null){
+                s.push(p);
+                p = p.left;
+            }
+            p = s.pop();
+            if(++i == k){
+                return p.val;
+            }
+            p = p.right;
+        }
+        return 0;
+    }
 
 
     //recursion

@@ -1,5 +1,6 @@
 import structures.TreeNode;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -66,7 +67,37 @@ public class ValidateBinarySearchTree {
     }
 
 
+    public boolean validBST(TreeNode root) {
+        //return validBSTRecursive(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
+        return validBSTIterative(root);
+    }
 
+    private boolean validBSTRecursive(TreeNode root, long max, long min){
+        if(root == null) return true;
+        if(root.val<min) return false;
+        if(root.val>max) return false;
+
+        return  validBSTRecursive(root.left, (long)root.val-1, min) &&
+                validBSTRecursive(root.right, max, (long)root.val+1);
+    }
+
+    public boolean validBSTIterative(TreeNode root) {
+        LinkedList<TreeNode> s = new LinkedList<>();
+        TreeNode cur = root;
+        TreeNode pre = null;
+
+        while(!s.isEmpty() || cur != null){
+            while(cur != null){
+                s.push(cur);
+                cur = cur.left;
+            }
+            TreeNode p = s.pop();
+            if(pre != null && pre.val >= p.val) return false;
+            pre = p;
+            cur = p.right;
+        }
+        return true;
+    }
 
 
     public static void main(String[] arg) {
