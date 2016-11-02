@@ -1,6 +1,5 @@
-/**
- * Created by Christina on 2/20/16.
- */
+package arrays;
+
 public class MinimumSizeSubarraySum {
     /**
      * Use two pointers, p1 points to the start, then p2 moves forward

@@ -1,12 +1,10 @@
+package arrays;
 import java.util.*;
 
-/**
- * Created by Christina on 2/20/16.
- */
 public class _4Sum {
     //O(n^3) O(1)
     public List<List<Integer>> fourSum(int[] num, int target) {
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
+        List<List<Integer>> ans = new ArrayList<>();
         Arrays.sort(num);
 
         for (int i = 0; i < num.length - 3; i++) {
@@ -24,7 +22,7 @@ public class _4Sum {
                     } else if (sum > target) {
                         right--;
                     } else {
-                        List<Integer> tmp = new ArrayList<Integer>();
+                        List<Integer> tmp = new ArrayList<>();
                         tmp.add(num[i]); tmp.add(num[j]); tmp.add(num[left]); tmp.add(num[right]);
                         ans.add(tmp);
                         left++; right--;

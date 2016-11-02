@@ -12,7 +12,26 @@ public class BalancedBinaryTree {
      * else return -1
      * use dfs, recursively use the method
      * */
+    //=============================================
+    //dfs
+    //bottom up O(n)
+    public boolean isBalanced(TreeNode root) {
+        return getBalancedDepth(root) >= 0;
+    }
 
+    private int getBalancedDepth(TreeNode root) {
+        if (root == null) return 0;
+        int left = getBalancedDepth(root.left);
+        int right = getBalancedDepth(root.right);
+        if (left >= 0 && right >= 0 && Math.abs(left - right) <= 1) {
+            return Math.max(left, right) + 1;
+        } else {
+            return -1;
+        }
+    }
+
+
+    // top down O(n^2)
     public boolean isBal(TreeNode root) {
 
         if(root == null){
@@ -31,20 +50,5 @@ public class BalancedBinaryTree {
         return Math.max(height(root.left), height(root.right)) + 1;
     }
 
-    //=============================================
-    //dfs
-    public boolean isBalanced(TreeNode root) {
-        return getBalancedDepth(root) >= 0;
-    }
 
-    private int getBalancedDepth(TreeNode root) {
-        if (root == null) return 0;
-        int left = getBalancedDepth(root.left);
-        int right = getBalancedDepth(root.right);
-        if (left >= 0 && right >= 0 && Math.abs(left - right) <= 1) {
-           return Math.max(left, right) + 1;
-        } else {
-            return -1;
-        }
-    }
 }

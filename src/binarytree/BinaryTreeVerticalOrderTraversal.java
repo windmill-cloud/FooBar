@@ -1,17 +1,60 @@
+package binarytree;
+
 import stuctures.TreeNode;
 
 import java.util.*;
 
-/**
- * Created by Christina on 2/22/16.
- */
 public class BinaryTreeVerticalOrderTraversal {
 
     /**
      * BFS  keep track of the position of the node,
      * and according the position to put the value into list
      * */
+
     //O(n)
+
+    public List<List<Integer>> verticalOrderII(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) return res;
+
+        Map<Integer, ArrayList<Integer>> map = new HashMap<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        Queue<Integer> cols = new LinkedList<>();
+
+        q.offer(root);
+        cols.offer(0);
+
+        int min = 0;
+        int max = 0;
+
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            int col = cols.poll();
+
+            map.putIfAbsent(col, new ArrayList<Integer>());
+            map.get(col).add(node.val);
+
+            if (node.left != null) {
+                q.offer(node.left);
+                cols.offer(col - 1);
+                min = Math.min(min, col - 1);
+            }
+
+            if (node.right != null) {
+                q.offer(node.right);
+                cols.offer(col + 1);
+                max = Math.max(max, col + 1);
+            }
+        }
+
+        for (int i = min; i <= max; i++) {
+            res.add(map.get(i));
+        }
+
+        return res;
+    }
+
+
     public List<List<Integer>> verticalOrder(TreeNode root) {
         if (root == null) {return new ArrayList<>();}
 

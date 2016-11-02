@@ -1,3 +1,4 @@
+package arrays;
 import java.util.*;
 
 public class _3Sum {
@@ -37,6 +38,7 @@ public class _3Sum {
     //O(n^2), O(n)
     public List<List<Integer>> threeSum1(int[] nums, int target) {
         Arrays.sort(nums);
+        //number, times
         Map<Integer, Integer> map = new HashMap<>();
         List<List<Integer>> ret = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {

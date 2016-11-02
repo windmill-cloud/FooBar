@@ -1,9 +1,9 @@
+package arrays;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * Created by Christina on 2/21/16.
- */
+// maximum product of k elements
 public class MaximumKProduct {
 
     //-1,-2,-3,-9,9,8,7
@@ -69,9 +69,10 @@ public class MaximumKProduct {
         return result;
     }
 
-    
+
     public static void main(String[] arg) {
         MaximumKProduct a = new MaximumKProduct();
-        System.out.println(a.maxK_Product(new Integer[]{-1, 2, 3, 5, -9}, 3));
+        System.out.println(a.maxK_Product(new Integer[]{0, -1, 2, 3, 5, -9}, 3));
+        return;
     }
 }
