@@ -78,7 +78,6 @@ public class DecodeWays {
         return dp[s.length()];
     }
 
-
     public static void main(String[] arg) {
         DecodeWays a = new DecodeWays();
         System.out.println(a.numDecodings("1231"));
