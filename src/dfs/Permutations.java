@@ -1,6 +1,7 @@
 package dfs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,29 +11,49 @@ public class Permutations {
 
     //O(n!), O(n)
     public List<List<Integer>> permute(int[] nums) {
-        if (nums.length == 0) return null;
-        List<List<Integer>> rst = new ArrayList<>();
-        boolean[] marked = new boolean[nums.length];
-        helper(nums, marked, rst, new ArrayList<>());
-        return rst;
+        List<List<Integer>> ans = new ArrayList<>();
+        if(nums == null || nums.length == 0) return ans;
+        helper(ans, new ArrayList<Integer>(), nums);
+        return ans;
     }
 
-    //一层一层递归   list某一个结果,到最后一个的时候停止recursion
-    private void helper(int[] nums, boolean[] marked, List<List<Integer>> rst, List<Integer> list) {
-        for (int i = 0; i < nums.length; i++) {
-            if (!marked[i]) {
-                marked[i] = true;
-                List<Integer> temp = new ArrayList<>(list);
-                temp.add(nums[i]);
-                if (temp.size() == nums.length) {
-                    rst.add(temp);
-                    marked[i] = false;
-                    return;
-                } else {
-                    helper(nums, marked, rst, temp);
-                }
-                marked[i] = false;
+    private void helper(List<List<Integer>> ans, List<Integer> path, int[]nums){
+        if(path.size() == nums.length){
+            ans.add(new ArrayList<Integer>(path));
+        }
+
+        for (int i = 0; i < nums.length;i++){
+            if(path.contains(nums[i])) continue;
+            path.add(nums[i]);
+            helper(ans, path, nums);
+            path.remove(path.size()-1);
+        }
+    }
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
+        boolean []visited = new boolean[nums.length];
+        helper(ans, new ArrayList<Integer>(), nums, visited);
+        return ans;
+    }
+
+    private void helper(List<List<Integer>> ans, List<Integer> path, int[] nums, boolean[] visited){
+        if (path.size() == nums.length){
+            ans.add(new ArrayList<Integer>(path));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++){
+            if(visited[i]) continue;
+            if(i>0 && nums[i] == nums[i-1] && !visited[i-1]){
+                continue;
             }
+            visited[i] = true;
+            path.add(nums[i]);
+            helper(ans, path, nums, visited);
+            visited[i] = false;
+            path.remove(path.size()-1);
         }
     }
 

@@ -1,6 +1,5 @@
-/**
- * Created by Christina on 2/29/16.
- */
+package dynamicprogramming;
+
 public class BuyAndSellStock__ {
     /**
      * 买一股，全卖出，不买不卖
