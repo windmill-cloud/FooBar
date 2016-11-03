@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="488f8558-924b-4129-8b23-3d87d8ff44bf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/arrays/MaximumSubarrayProduct.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/binarysearchtree/ReconstructBSTpreOrder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/binarytree/BoundaryTraversalClock.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/binarytree/BoundaryTraversalCounter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/linkedlist/MergeSortedLists.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/binarytree/BinaryTreeLevelOrderTraversal.java.orig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/binarytree/BinaryTreeVerticalOrderTraversal.java.orig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/binarytree/SerializeandDeserializeBinaryTree.java.orig" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/arrays/RemoveDuplicatesfromSortedArray.class" afterPath="$PROJECT_DIR$/out/production/FooBar/arrays/RemoveDuplicatesfromSortedArray.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/binarysearchtree/ConvertSortedArraytoBinarySearchTree.class" afterPath="$PROJECT_DIR$/out/production/FooBar/binarysearchtree/ConvertSortedArraytoBinarySearchTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/binarytree/MinimumDepthofBinaryTree.class" afterPath="$PROJECT_DIR$/out/production/FooBar/binarytree/MinimumDepthofBinaryTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/binarytree/PopulatingNextRightPointersinEachNode.class" afterPath="$PROJECT_DIR$/out/production/FooBar/binarytree/PopulatingNextRightPointersinEachNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/binarytree/PostorderTraversal.class" afterPath="$PROJECT_DIR$/out/production/FooBar/binarytree/PostorderTraversal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/binarytree/PreorderTraversal.class" afterPath="$PROJECT_DIR$/out/production/FooBar/binarytree/PreorderTraversal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/binarytree/PrintPathFromRootToLeaf.class" afterPath="$PROJECT_DIR$/out/production/FooBar/binarytree/PrintPathFromRootToLeaf.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/dynamicprogramming/WordBreak.class" afterPath="$PROJECT_DIR$/out/production/FooBar/dynamicprogramming/WordBreak.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/graph/CourseSchedule.class" afterPath="$PROJECT_DIR$/out/production/FooBar/graph/CourseSchedule.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/linkedlist/ReverseLinkedList.class" afterPath="$PROJECT_DIR$/out/production/FooBar/linkedlist/ReverseLinkedList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/binarysearch/SearchinRotatedSortedArrayII.java" afterPath="$PROJECT_DIR$/src/binarysearch/SearchinRotatedSortedArrayII.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/binarytree/SameTree.java" afterPath="$PROJECT_DIR$/src/binarytree/SameTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dfs/Permutations.java" afterPath="$PROJECT_DIR$/src/dfs/Permutations.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dynamicprogramming/BuyAndSellStock__.java" afterPath="$PROJECT_DIR$/src/dynamicprogramming/BuyAndSellStock__.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dynamicprogramming/DecodeWays.java" afterPath="$PROJECT_DIR$/src/dynamicprogramming/DecodeWays.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/CloneGraph.java" afterPath="$PROJECT_DIR$/src/graph/CloneGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/structures/UndirectedGraphNode.java" afterPath="$PROJECT_DIR$/src/structures/UndirectedGraphNode.java" />
-    </list>
+    <list default="true" id="488f8558-924b-4129-8b23-3d87d8ff44bf" name="Default" comment="" />
     <ignored path="FooBar.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,11 +22,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InorderSuccessor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InorderSuccessor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/binarysearchtree/InorderSuccessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="315">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AllBuildingShortestDistance.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/graph/AllBuildingShortestDistance.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -84,16 +67,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DecodeWays.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dynamicprogramming/DecodeWays.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -134,16 +107,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuyAndSellStock__.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dynamicprogramming/BuyAndSellStock__.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -192,6 +155,7 @@
         <option value="$PROJECT_DIR$/src/binarysearchtree/ReconstructBST.java" />
         <option value="$PROJECT_DIR$/src/binarysearchtree/ReconstructBSTpreOrder.java" />
         <option value="$PROJECT_DIR$/src/binarytree/SameTree.java" />
+        <option value="$PROJECT_DIR$/src/bfs/ShortestPathAllBuildings.java" />
       </list>
     </option>
   </component>
@@ -368,6 +332,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="binarysearch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FooBar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FooBar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bfs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -905,16 +887,16 @@
       <updated>1478062976100</updated>
       <workItem from="1478062977845" duration="284000" />
       <workItem from="1478063385253" duration="4762000" />
-      <workItem from="1478143497981" duration="11614000" />
+      <workItem from="1478143497981" duration="12726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16660000" />
+    <option name="totallyTimeSpent" value="17772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1920" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -923,7 +905,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35211268" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35211268" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1169,7 +1151,7 @@
         <state relative-caret-position="255">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1179,7 +1161,7 @@
         <state relative-caret-position="510">
           <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1271,7 +1253,7 @@
     <entry file="file://$PROJECT_DIR$/src/dynamicprogramming/DecodeWays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1334,8 +1316,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/binarysearchtree/InorderSuccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="315">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bfs/ShortestPathAllBuildings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/AllBuildingShortestDistance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
           <folding />
         </state>
       </provider>
