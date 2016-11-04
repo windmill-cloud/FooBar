@@ -24,6 +24,48 @@ public class CopyListwithRandomPointer {
     }
 
 
+    public RandomListNode copyRandomListConstSpace(RandomListNode head) {
+        RandomListNode p = head, next;
+
+        // First round: make copy of each node,
+        // and link them together side-by-side in a single list.
+        while (p != null) {
+            next = p.next;
+
+            p.next = new RandomListNode(p.label);
+            p.next.next = next;
+
+            p = next;
+        }
+
+        // Second round: assign random pointers for the copy nodes.
+        p = head;
+        while (p != null) {
+            if (p.random != null) {
+                p.next.random = p.random.next;
+            }
+            p = p.next.next;
+        }
+
+        // Third round: restore the original list, and extract the copy list.
+        p = head;
+        RandomListNode dummy = new RandomListNode(0);
+        RandomListNode copyIter = dummy;
+
+        while (p != null) {
+            // extract the copy
+            copyIter.next = p.next;
+            copyIter = copyIter.next;
+
+            // restore the original list
+            p.next = p.next.next;
+
+            p = p.next;
+        }
+
+        return dummy.next;
+    }
+
     public RandomListNode copyRandomList(RandomListNode head) {
         if (head == null) return null;
 

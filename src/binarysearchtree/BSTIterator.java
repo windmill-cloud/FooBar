@@ -1,10 +1,8 @@
+package binarysearchtree;
 import structures.TreeNode;
 
 import java.util.Stack;
 
-/**
- * Created by Christina on 2/23/16.
- */
 public class BSTIterator {
     private Stack<TreeNode> stack;
     public BSTIterator(TreeNode root) {
@@ -32,7 +30,10 @@ public class BSTIterator {
     }
 
     private void pushAllLeft(TreeNode node) {
-        for (; node != null; stack.push(node), node = node.left);
+        while(node != null){
+            stack.push(node);
+            node = node.left;
+        }
     }
 
     public static void main(String[] arg) {

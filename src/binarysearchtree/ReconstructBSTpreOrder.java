@@ -1,5 +1,7 @@
 package binarysearchtree;
 
+import structures.TreeNode;
+
 /**
  * Created by xuanwang on 11/2/16.
  */
@@ -7,7 +9,43 @@ package binarysearchtree;
 // Java program to construct BST from given preorder traversal
 
 
-    class ReconstructBSTpreOrder {
+class ReconstructBSTpreOrder {
+
+    //'Time complexity: O(NlgN)'
+
+    public TreeNode constructFromPreorder(int[] preorder) {
+        if (preorder.length == 0) {
+            return null;
+        }
+        return constructorHelper(preorder, 0, preorder.length - 1);
+    }
+    private TreeNode constructorHelper(int[] preorder, int start, int end) {
+        TreeNode root = new TreeNode(preorder[start]);
+        if (start == end) {
+            return root;
+        }
+        // find the start of right branch
+        start++;
+        int rightIndex = start;
+        while (rightIndex <= end && preorder[rightIndex] < root.val) {
+            rightIndex++;
+        }
+        TreeNode left = null;
+        TreeNode right = null;
+        if (rightIndex > start) {
+            left = constructorHelper(preorder, start, rightIndex - 1);
+        }
+        if (rightIndex <= end) {
+            right = constructorHelper(preorder, rightIndex, end);
+        }
+        root.left = left;
+        root.right = right;
+        return root;
+    }
+
+    //====================================================MINMAX O(n)==============================
+
+
     // A binary tree node
     class Node {
 

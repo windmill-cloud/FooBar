@@ -42,6 +42,22 @@ public class ValidPalindrome {
         return true;
     }
 
+    public boolean isPalindromeArray(char[] c) {
+
+        int left = 0, right = c.length - 1;
+        while (left < right) {
+            while (left < right && !Character.isLetterOrDigit(c[left])) {
+                left++;
+            }
+            while (left < right && !Character.isLetterOrDigit(c[right])) {
+                right--;
+            }
+            if (c[left] != c[right] || Math.abs(c[left] - c[right]) != 32) return false;
+            left++;right--;
+        }
+        return true;
+    }
+
     public static void main(String[] arg) {
         ValidPalindrome a = new ValidPalindrome();
         System.out.println(a.isPalindrome("A."));

@@ -68,6 +68,40 @@ public class BuyAndSellStock__ {
         }
         return ret;
     }
+    // best time to buy stock with cool down:
+    public int maxProfitCooldown(int[] prices) {
+        if (prices.length == 0) {
+            return 0;
+        }
+        int[] hold = new int[prices.length]; //Have no stock on hands today(sell it or do not buy)
+        int[] buy = new int[prices.length]; //buy stock today or have bought it before today(have stock on hands)
+        hold[0] = 0;
+        buy[0] = 0 - prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            hold[i] = Math.max(buy[i - 1] + prices[i], hold[i - 1]);
+            if (i == 1) {
+                buy[i] = Math.max(buy[0], 0 - prices[i]);
+            }
+            else {
+                buy[i] = Math.max(buy[i - 1], hold[i - 2] - prices[i]);
+            }
+        }
+        return hold[prices.length - 1];
+
+    }
+
+    //--------------------------------------------------------------------//
+    public int maxProfit(int[] prices) {
+        int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy;
+        for (int price : prices) {
+            prev_buy = buy;
+            buy = Math.max(prev_sell - price, prev_buy);
+            prev_sell = sell;
+            sell = Math.max(prev_buy + price, prev_sell);
+        }
+        return sell;
+    }
+
 
     /**
      * the different transactions fee

@@ -1,5 +1,8 @@
 package dynamicprogramming;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DecodeWays {
 
     /**
@@ -76,6 +79,34 @@ public class DecodeWays {
         }
 
         return dp[s.length()];
+    }
+
+    //======================================== all the ways to decode ===============================================
+    // 'Time complexity: O(1.6 ^ n)'
+    public List<String> decode(String num) {
+        List<String> result = new ArrayList<>();
+        helper(result, 0, num, "");
+        return result;
+    }
+
+    private void helper(List<String> result, int pos, String num, String path) {
+        if (pos == num.length()) {
+            result.add(path);
+            return;
+        }
+        String digits = num.substring(pos, pos + 1);
+        int number = Integer.parseInt(digits);
+        if (number == 0) {
+            return;
+        }
+        helper(result, pos + 1, num, path + (char)(number + 'A' - 1));
+        if (pos < num.length() - 1) {
+            String digits2 = num.substring(pos, pos + 2);
+            int number2 = Integer.parseInt(digits2);
+            if (number <= 26) {
+                helper(result, pos + 2, num, path + (char)(number2 + 'A' - 1));
+            }
+        }
     }
 
     public static void main(String[] arg) {

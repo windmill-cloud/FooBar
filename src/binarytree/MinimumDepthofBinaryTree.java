@@ -9,7 +9,7 @@ import java.util.Queue;
  * Created by Christina on 2/20/16.
  */
 public class MinimumDepthofBinaryTree {
-    //dfs O(n)
+    //dfs O(n) Recursive
     public int minDepth(TreeNode root) {
         if (root == null) {return 0;}
         if (root.left == null && root.right == null) {return 1;}
