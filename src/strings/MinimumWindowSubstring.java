@@ -3,9 +3,6 @@ package strings;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Christina on 1/18/16.
- */
 public class MinimumWindowSubstring {
 
     /*

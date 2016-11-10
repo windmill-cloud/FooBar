@@ -2,9 +2,6 @@ package graph;
 
 import java.util.*;
 
-/**
- * Created by Christina on 3/3/16.
- */
 public class CourseSchedule {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int[][] matrix = new int[numCourses][numCourses]; // i -> j
@@ -19,7 +16,7 @@ public class CourseSchedule {
         }
 
         int count = 0;
-        Queue<Integer> queue = new LinkedList();
+        Queue<Integer> queue = new LinkedList<>();
         for (int i=0; i<indegree.length; i++) {
             if (indegree[i] == 0) queue.offer(i);
         }
@@ -35,8 +32,6 @@ public class CourseSchedule {
         }
         return count == numCourses;
     }
-
-
 
     public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
         if (numCourses <= 1)

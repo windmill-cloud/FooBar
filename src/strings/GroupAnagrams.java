@@ -1,10 +1,24 @@
+package strings;
+
 import java.util.*;
 
-/**
- * Created by Christina on 1/4/16.
- */
+
 public class GroupAnagrams {
     //把所有的anagrams放在一起
+
+    public List<List<String>> groupAnagramswx(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+
+        for(String s: strs){
+            char[] a = s.toCharArray();
+            Arrays.sort(a);
+            String key = new String(a);
+            map.putIfAbsent(key, new ArrayList<String>());
+            map.get(key).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
 
     //O(n), O(n)
     //如果有sort  O(nlogn)
