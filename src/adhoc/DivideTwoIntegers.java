@@ -30,6 +30,41 @@ public class DivideTwoIntegers {
         return sign == 1 ? res : -res;
     }
 
+    // O(logn)
+    public int dividewx(int dividend, int divisor) {
+        //overflow
+        if (divisor == 0) {
+            return dividend >= 0? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        }
+
+        // dividend == 0 => result = 0
+        if (dividend == 0) {
+            return 0;
+        }
+
+        // special case
+        if (dividend == Integer.MIN_VALUE && divisor == -1) {
+            return Integer.MAX_VALUE;
+        }
+
+        // the result is positive/negative
+        boolean isNegative = (dividend < 0 && divisor > 0) ||
+                (dividend > 0 && divisor < 0);
+
+        long a = Math.abs((long)dividend);
+        long b = Math.abs((long)divisor);
+        int result = 0;
+        while(a >= b){
+            int shift = 0;
+            while(a >= (b << shift)){
+                shift++;
+            }
+            a -= b << (shift - 1);
+            result += 1 << (shift - 1);
+        }
+        return isNegative? -result: result;
+    }
+
     //using long
     //O(logn)
     public int divide1(int dividend, int divisor) {

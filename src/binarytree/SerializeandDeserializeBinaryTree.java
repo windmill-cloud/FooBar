@@ -43,7 +43,7 @@ public class SerializeandDeserializeBinaryTree {
 
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public static TreeNode deserialize(String data) {
         if(data.length() == 0) return null;
         String[] values = data.split(" ");
         TreeNode root = new TreeNode(Integer.parseInt(values[0]));
