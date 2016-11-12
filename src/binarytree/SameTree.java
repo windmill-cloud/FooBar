@@ -5,7 +5,7 @@ import structures.TreeNode;
 /**
  * Created by xuanwang on 11/1/16.
  */
-public class SameTree {
+public class  SameTree {
     public static boolean areIdentical(TreeNode T1, TreeNode T2){
         if(T1 == null && T2 == null){
             return true;

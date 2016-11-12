@@ -1,5 +1,4 @@
 package binarysearch;
-
 /**
  * Created by Christina on 2/21/16.
  */
