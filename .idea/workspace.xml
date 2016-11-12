@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="488f8558-924b-4129-8b23-3d87d8ff44bf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/binarysearchtree/Search2DMatrix.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reservoirsampling/WeightedRandom.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/structures/AddAndSearchWord.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/dfs/Permutations.class" afterPath="$PROJECT_DIR$/out/production/FooBar/dfs/Permutations.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FooBar/dynamicprogramming/DecodeWays.class" afterPath="$PROJECT_DIR$/out/production/FooBar/dynamicprogramming/DecodeWays.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/adhoc/SparseVectorMultiplication.java" afterPath="$PROJECT_DIR$/src/adhoc/SparseVectorMultiplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dynamicprogramming/LongestArithmeticProgression.java" afterPath="$PROJECT_DIR$/src/dynamicprogramming/LongestArithmeticProgression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/CourseSchedule.java" afterPath="$PROJECT_DIR$/src/graph/CourseSchedule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/strings/GroupAnagrams.java" afterPath="$PROJECT_DIR$/src/strings/GroupAnagrams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/strings/MinimumWindowSubstring.java" afterPath="$PROJECT_DIR$/src/strings/MinimumWindowSubstring.java" />
     </list>
     <ignored path="FooBar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,16 +24,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TaskSchedule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph/TaskSchedule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RandomlyReturntheIndexofMaximalElement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reservoirsampling/RandomlyReturntheIndexofMaximalElement.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SerializeandDeserializeBinaryTree.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SerializeandDeserializeBinaryTree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/binarytree/SerializeandDeserializeBinaryTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-656">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="-60">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="63" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -119,11 +99,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GroupAnagrams.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GroupAnagrams.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/strings/GroupAnagrams.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreeNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/structures/TreeNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -216,8 +206,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-85" />
-    <option name="y" value="603" />
+    <option name="x" value="556" />
+    <option name="y" value="303" />
     <option name="width" value="1717" />
     <option name="height" value="915" />
   </component>
@@ -1055,16 +1045,16 @@
       <workItem from="1478062977845" duration="284000" />
       <workItem from="1478063385253" duration="4762000" />
       <workItem from="1478143497981" duration="23500000" />
-      <workItem from="1478227696746" duration="20452000" />
+      <workItem from="1478227696746" duration="21160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48998000" />
+    <option name="totallyTimeSpent" value="49706000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-85" y="603" width="1717" height="915" extended-state="0" />
-    <editor active="false" />
+    <frame x="556" y="303" width="1717" height="915" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1116,14 +1106,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/binarytree/BinaryTreeLevelOrderTraversal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/binarytree/BoundaryTraversalCounter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="577">
@@ -1280,6 +1262,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1068#1069#0" expanded="false" />
+            <element signature="e#1101#1102#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1460,14 +1447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/binarytree/SerializeandDeserializeBinaryTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-656">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/binarysearchtree/Search2DMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="664">
@@ -1507,6 +1486,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/structures/TreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/binarytree/SerializeandDeserializeBinaryTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="63" selection-end-column="5" />
           <folding />
         </state>
       </provider>
