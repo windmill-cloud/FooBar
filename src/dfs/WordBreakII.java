@@ -10,7 +10,7 @@ public class WordBreakII {
      * to get word break of the next part
      * */
     //backtracking
-    //the time complexity is complicated but for the worst case, if every signle character is in
+    //the time complexity is complicated but for the worst case, if every single character is in
     // the wordDict, it is O(n^2)
     public List<String> wordBreak1(String s, Set<String> wordDict) {
         if (s == null || s.length() == 0) {return new ArrayList<>();}
@@ -34,6 +34,7 @@ public class WordBreakII {
     }
 
     //遍历wordDict   when wordDict is small
+    //O(len(wordDict) ^ len(s / minWordLenInDict))
     public List<String> wordBreak(String s, Set<String> wordDict) {
         return DFS(s, wordDict, new HashMap<String, List<String>>());
     }

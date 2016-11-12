@@ -1,3 +1,5 @@
+package binarysearch;
+
 /**
  * Created by Christina on 2/21/16.
  */
@@ -45,7 +47,7 @@ public class SearchinRotatedSortedArrayII {
     }
 
     public static void main(String[] arg) {
-        SearchinRotatedSortedArray a = new SearchinRotatedSortedArray();
+        SearchinRotatedSortedArrayII a = new SearchinRotatedSortedArrayII();
         System.out.println(a.search(new int[]{5, 1, 1, 1, 2, 3, 4}, 1));
         System.out.println(a.search(new int[]{5, 6, 7, 8, 1, 3}, 5));
         System.out.println(a.search(new int[]{5, 6, 7, 8, 1, 3}, 6));

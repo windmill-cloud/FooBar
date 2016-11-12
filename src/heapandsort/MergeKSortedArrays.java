@@ -1,9 +1,11 @@
+package heapandsort;
+
 import java.util.*;
 
 /**
  * Created by Christina on 2/20/16.
  */
-public class MergeKSortedArray {
+public class MergeKSortedArrays {
     /**
      * just like merge sort, merge two sorted arrays in to a new one,
      * then merge two new arrays to the new one recursively
@@ -98,7 +100,7 @@ public class MergeKSortedArray {
     }
 
     public static void main(String[] arg) {
-        MergeKSortedArray a = new MergeKSortedArray();
+        MergeKSortedArrays a = new MergeKSortedArrays();
         a.mergeKArrays(new int[][]{
                 {1, 2, 3}, {2, 5, 7}, {0, 5, 9}, {8, 9, 10}
         });

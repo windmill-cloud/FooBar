@@ -1,3 +1,5 @@
+package binarysearchtree;
+
 import structures.ListNode;
 import structures.TreeNode;
 
