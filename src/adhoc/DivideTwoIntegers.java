@@ -31,6 +31,21 @@ public class DivideTwoIntegers {
     }
 
     // O(logn)
+    /*
+
+    整数近似除法：32/3 = 10
+
+    显然求近似除法可以用乘法来二分查找：32 ~ 3*10 = 3*[1*(2^3) + 0*(2^2) + 1*(2^1) + 0*(2^0)]
+
+    res = 0
+
+        1. 先找到a使x*2^a <= y < x*2^(a+1)，res += 2^a，y = y - x*2^a
+
+        2. if(y >= x*2^(a-1) {res+=2^(a-1); y = y - x*2^(a-1);}
+
+        3. if(y >= x*2^(a-2) {res+=2^(a-2); y = y - x*2^(a-2);}
+
+     */
     public int dividewx(int dividend, int divisor) {
         //overflow
         if (divisor == 0) {
@@ -51,15 +66,15 @@ public class DivideTwoIntegers {
         boolean isNegative = (dividend < 0 && divisor > 0) ||
                 (dividend > 0 && divisor < 0);
 
-        long a = Math.abs((long)dividend);
-        long b = Math.abs((long)divisor);
+        long x = Math.abs((long)dividend);
+        long y = Math.abs((long)divisor);
         int result = 0;
-        while(a >= b){
+        while(x >= y){
             int shift = 0;
-            while(a >= (b << shift)){
+            while(x >= (y << shift)){
                 shift++;
             }
-            a -= b << (shift - 1);
+            x -= y << (shift - 1);
             result += 1 << (shift - 1);
         }
         return isNegative? -result: result;
