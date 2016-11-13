@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,23 +12,23 @@ public class TaskSchedule {
      * Use the map to store the next position
      * */
     //O(n) O(n)
-    public int taskSchedule(int[] nums, int interval) {
+    public int taskSchedule(int[] nums, int cooldown) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int ret = 0;
+        int time = 0;
 
         //the value is the next position where this task can be implemented
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (!map.containsKey(nums[i]) || map.get(nums[i]) <= ret) {
-                ret++;
+            if (!map.containsKey(nums[i]) || map.get(nums[i]) <= time) {
+                time++; // needs to put current task or needs more time to schedule
             } else {
-                ret = map.get(nums[i]);
+                time = map.get(nums[i]);
             }
-            map.put(nums[i], ret + interval + 1);
+            map.put(nums[i], time + cooldown + 1);
         }
-        return ret;
+        return time;
     }
 
     /**
@@ -38,9 +40,9 @@ public class TaskSchedule {
      * two conditions:
      * 1.  5 4 _ _ _ 5 4 _ _ _ 5 4 _ _ _ 5 4  the rest tasks cannot fill the empty slots
      *     5 4 3 2 _ 5 4 3 2 _ 5 4 _ _ _ 5 4
-     *     the answer is (maxCount - 1) * (interval + 1) + CountOfMax
+     *     the answer is (maxFreq - 1) * (interval + 1) + CountOfMax
      * 1. 5 4 _ _ _ 5 4 _ _ _ 5 4 _ _ _ 5 4  the rest tasks cannot fill the empty slots
-     *    5 4 3 2 1 6 5 4 3 2 1 6 5 4 6 _ _ 5 4
+     *    5 4 3 2 1 5 4 3 2 1 5 4 6 7 8 5 4 7 8
      *    the answer is the length of the nums
      *    the task which does not have max count first fills the empty slots and then just insert any valid place
      * */
@@ -50,21 +52,20 @@ public class TaskSchedule {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int max = 0;
-        int countOfMax = 0;
+        int maxFreq = 0;
+        int countOfMax = 0; // how many tasks are of the same frequency
         Map<Integer, Integer> map = new HashMap<>();
         for (int task : nums) {
-            map.put(task, map.containsKey(task) ? map.get(task) + 1 : 1);
-            if (max == map.get(task)) {
+            // count frequencies
+            map.put(task, map.getOrDefault(task, 0) + 1);
+            if (maxFreq == map.get(task)) {
                 countOfMax++;
-            } else if (max < map.get(task)) {
-                max = Math.max(max, map.get(task));
+            } else if (maxFreq < map.get(task)) {
+                maxFreq = map.get(task);
                 countOfMax = 1;
             }
         }
-
-
-        return Math.max(nums.length, (max - 1) * (interval + 1) + countOfMax);
+        return Math.max(nums.length, (maxFreq - 1) * (interval + 1) + countOfMax);
     }
 
     public static void main(String[] arg) {

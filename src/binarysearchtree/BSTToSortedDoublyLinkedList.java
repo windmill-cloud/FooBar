@@ -1,13 +1,14 @@
+package binarysearchtree;
+
 import structures.TreeNode;
 
 import java.util.Stack;
 
-/**
- * Created by Christina on 3/3/16.
- */
-public class BSTToSortedDoulblyLinkedList {
 
-    //stack
+public class BSTToSortedDoublyLinkedList {
+
+    // stack
+    // circular
     public DoublyLinkedList convert(TreeNode root) {
         if (root == null) {return null;}
         Stack<TreeNode> stack = new Stack<>();
@@ -73,8 +74,6 @@ public class BSTToSortedDoulblyLinkedList {
     }
 
 
-
-
     //dfs
     public TreeNode convert2(TreeNode root) {
         if (root == null) {return root;}
@@ -115,7 +114,7 @@ public class BSTToSortedDoulblyLinkedList {
     }
 
     public static void main(String[] args) {
-        BSTToSortedDoulblyLinkedList a = new BSTToSortedDoulblyLinkedList();
+        BSTToSortedDoublyLinkedList a = new BSTToSortedDoublyLinkedList();
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(3);
         root.left.left = new TreeNode(1);
