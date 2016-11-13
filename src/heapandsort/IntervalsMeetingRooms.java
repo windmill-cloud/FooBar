@@ -1,3 +1,5 @@
+package heapandsort;
+
 import structures.Interval;
 
 import java.util.*;
@@ -113,10 +115,33 @@ public class IntervalsMeetingRooms {
         return heap.size();
     }
 
+
+    //O(nLog(n)), O(1)
+    //sorted, unsorted, 一个, 两个不干涉, 两个干涉, 多个干涉
+    public static int meetingRoomsMaxOverlap(Interval[] intervals) {
+        if (intervals == null || intervals.length == 0) return -1;
+        Arrays.sort(intervals, (a, b) -> a.start - b.start);
+
+        PriorityQueue<Interval> heap = new PriorityQueue<>(intervals.length,
+                (a, b) -> a.end - b.end);
+
+        heap.offer(intervals[0]);
+        for (int i = 1; i < intervals.length; i++) {
+            Interval top = heap.poll();
+            if (intervals[i].start >= top.end)
+                top.end = intervals[i].end;
+            else
+                heap.offer(intervals[i]);
+            heap.offer(top);
+        }
+        return heap.peek().end;
+    }
+
+
     public static void main(String[] arg) {
 
-        System.out.println(minMeetingRooms1(new Interval[]{new Interval(2, 15), new Interval(36, 45),
-                new Interval(9, 29), new Interval(16, 23), new Interval(4, 9)}));
+        System.out.println(meetingRoomsMaxOverlap(new Interval[]{new Interval(0, 30), new Interval(5, 10),
+                new Interval(15, 20)}));
     }
 
 }
