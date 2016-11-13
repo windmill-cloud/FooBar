@@ -16,6 +16,7 @@ public class MinimumWindowSubstring {
         HashMap<Character, Integer> map = new HashMap();
         for(char c : t.toCharArray()){
             map.put(c, map.getOrDefault(c, 0) + 1);
+            //map.put(c, 1); variation: no matter how many times a char appears in String t.
         }
         int left = 0, minLeft=0, minLen =s.length()+1, count = 0;
         for(int right = 0; right<s.length(); right++){
