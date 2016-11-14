@@ -3,9 +3,6 @@ package binarysearchtree;
 import structures.ListNode;
 import structures.TreeNode;
 
-/**
- * Created by Christina on 2/22/16.
- */
 public class ConvertSortedListtoBinarySearchTree {
     /**
      * Recursively

@@ -22,6 +22,8 @@ public class SortColors {
     }
 
     //there are k types
+    // bucket
+    // count[i] => how many color i
     //O(n + k)
     public void sortKColors(int[] nums, int k) {
         int[] count = new int[k];
