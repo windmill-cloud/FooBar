@@ -5,14 +5,14 @@ import java.util.*;
 /**
  * Created by xuanwang on 10/31/16.
  */
-public class GetInsertRemoveO1 {
+public class InsertDeleteGetRandomO1 {
 
     Map<Integer, Integer> map;
     List<Integer> list;
     Random rand;
 
     /** Initialize your data structure here. */
-    public GetInsertRemoveO1() {
+    public InsertDeleteGetRandomO1() {
         map = new HashMap<>();
         list = new ArrayList<>();
         rand = new Random();
