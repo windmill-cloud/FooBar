@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Created by xuanwang on 11/3/16.
  */
-public class LCAofDeepest {
+public class LCALowestCommonAncestorofDeepest {
     /*1. 给一个 二叉树 ， 求最深节点的最小公共父节点。 (BST LCA with deepest leaf)
 
      1

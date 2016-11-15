@@ -57,8 +57,39 @@ public class Permutations {
         }
     }
 
+    public static List<String> permutationsOfString(String s) {
+        List<String> ans = new ArrayList<>();
+        int len = s.length();
+        char[] array = s.toCharArray();
+        Arrays.sort(array);
+        boolean[] visited = new boolean[len];
+        dfs(ans, new StringBuilder(), array, visited, 0);
+        return ans;
+    }
+
+    private static void dfs(List<String> ans, StringBuilder path, char[] array, boolean[] visited, int pos) {
+        if (pos == array.length) {
+            ans.add(path.toString());
+            return;
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (visited[i]) {
+                continue;
+            }
+            if (i != 0 && array[i] == array[i-1] && !visited[i-1]) {
+                continue;
+            }
+            path.append(array[i]);
+            visited[i] = true;
+            dfs(ans, path, array, visited, pos+1);
+            visited[i] = false;
+            path.deleteCharAt(path.length()-1);
+        }
+    }
+
     public static void main(String[] arg) {
         Permutations a = new Permutations();
         System.out.println(a.permute(new int[]{1, 2, 3}));
+        System.out.println(permutationsOfString("abc"));
     }
 }

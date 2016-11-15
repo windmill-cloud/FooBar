@@ -6,13 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * Created by Christina on 2/23/16.
- */
 public class PostorderTraversal {
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> result = new LinkedList<Integer>();
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        List<Integer> result = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
         if(root == null) {
             return result;
         }

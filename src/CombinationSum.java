@@ -148,4 +148,42 @@ public class CombinationSum {
         }
         return dp[target];
     }
+
+    // [1, 2, 3] target = 4
+    /*
+    i = 0
+    nums[i] = 1
+    j = 1 -> 4
+    dp = [1, 1, 1, 1, 1]
+
+    i = 1
+    nums[i] = 2
+    j = 2 - > 4
+    dp = [1, 1, 2, 3, 3]
+
+
+    i = 2
+    nums[i] = 3
+    j = 3 - > 4
+    dp = [1, 1, 2, 3, 4]
+
+    */
+
+    public static int combinationSum4Unique(int[] nums, int target) {
+        int[] dp = new int[target+1];
+        //Arrays.sort(nums);
+        dp[0] = 1;
+        for(int i = 0; i < nums.length; i++){
+            for(int j = nums[i]; j<= target; j++){
+                dp[j] += dp[j-nums[i]];
+            }
+        }
+        return dp[target];
+    }
+
+    public static void main(String[] args){
+        int[] nums = {1,2,3};
+        int res = combinationSum4Unique(nums, 4);
+        System.out.println();
+    }
 }

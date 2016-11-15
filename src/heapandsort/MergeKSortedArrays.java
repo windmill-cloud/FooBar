@@ -61,12 +61,7 @@ public class MergeKSortedArrays {
     // n * log k  O(k)
     public int[] mergeKArrays1(int[][] arrays) {
         if (arrays == null || arrays.length == 0) {return new int[]{};}
-        Queue<arrWrapper> heap = new PriorityQueue<>(arrays.length, new Comparator<arrWrapper>() {
-            @Override
-            public int compare(arrWrapper o1, arrWrapper o2) {
-                return o1.array[o1.p] - o2.array[o2.p];
-            }
-        });
+        Queue<arrWrapper> heap = new PriorityQueue<>(arrays.length, (o1, o2) -> o1.array[o1.p] - o2.array[o2.p]);
 
         int len = 0;
         for (int[] array : arrays) {
@@ -87,6 +82,7 @@ public class MergeKSortedArrays {
         }
         return ret;
     }
+
     class arrWrapper {
         int[] array;
         int p;

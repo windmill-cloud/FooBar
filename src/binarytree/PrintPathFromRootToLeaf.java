@@ -4,15 +4,37 @@ import structures.TreeNode;
 
 import java.util.*;
 
-/**
- * Created by Christina on 2/21/16.
- */
 public class PrintPathFromRootToLeaf {
+    //recursive
+    public List<String> binaryTreePathsRec(TreeNode root) {
+        List<String> res = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        helper(res, root, sb);
+        return res;
+    }
+
+    private void helper(List<String> res, TreeNode root, StringBuilder sb) {
+        if(root == null) {
+            return;
+        }
+        int len = sb.length();
+        sb.append(root.val);
+        if(root.left == null && root.right == null) {
+            res.add(sb.toString());
+        } else {
+            sb.append("->");
+            helper(res, root.left, sb);
+            helper(res, root.right, sb);
+        }
+        sb.setLength(len);
+    }
+
+    // iterative
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> ret = new ArrayList<String>();
+        List<String> ret = new ArrayList<>();
         if(null==root) return ret;
-        Queue<TreeNode> q = new LinkedList<TreeNode>();
-        HashMap<TreeNode, TreeNode> parent = new HashMap<TreeNode, TreeNode>();
+        Queue<TreeNode> q = new LinkedList<>();
+        HashMap<TreeNode, TreeNode> parent = new HashMap<>();
         q.add(root);
 
         while(!q.isEmpty()){
