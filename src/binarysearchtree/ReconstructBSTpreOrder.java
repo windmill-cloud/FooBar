@@ -32,10 +32,10 @@ class ReconstructBSTpreOrder {
         }
         TreeNode left = null;
         TreeNode right = null;
-        if (rightIndex > start) {
+        if (rightIndex > start) { // left subtree exists
             left = constructorHelper(preorder, start, rightIndex - 1);
         }
-        if (rightIndex <= end) {
+        if (rightIndex <= end) { // right subtree exists
             right = constructorHelper(preorder, rightIndex, end);
         }
         root.left = left;
