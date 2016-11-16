@@ -1,86 +1,94 @@
+package structures;
+
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Christina on 2/29/16.
- */
 public class LRUCache {
-    Map<Integer, DoublyListNode> map;
-    int capacity;
-    DoublyListNode dummyHead;
-    DoublyListNode dummyTail;
 
-    //O(1)
-    public LRUCache(int capacity) {
-        this.capacity = capacity;
-        dummyHead = new DoublyListNode(0, 0);
-        dummyTail = new DoublyListNode(0, 0);
-        dummyTail.pre = dummyHead;
-        dummyHead.next = dummyTail;
-        map = new HashMap<>();
-    }
-
-    //O(1)
-    public int get(int key) {
-        if (map.containsKey(key)) {
-            DoublyListNode node = map.get(key);
-            deleteTail(key);
-            addHead(node);
-            return node.val;
-        }
-        return -1;
-    }
-
-    //O(1)
-    public void set(int key, int value) {
-        DoublyListNode node;
-        if (map.containsKey(key)) {
-            node = map.get(key);
-            node.val = value;
-            deleteTail(key);
-        } else {
-            node = new DoublyListNode(key, value);
-        }
-        addHead(node);
-        if (map.size() > capacity) {
-            deleteTail(dummyTail.pre.key);
-        }
-    }
-
-    //O(1)
-    public int getLastestKey() {
-        return dummyHead.next.key;
-    }
-
-    private void deleteTail(int key) {
-        DoublyListNode node = map.get(key);
-        DoublyListNode pre = node.pre, next = node.next;
-        pre.next = next;
-        next.pre = pre;
-        map.remove(key);
-    }
-
-
-    private void addHead(DoublyListNode node) {
-        node.next = dummyHead.next;
-        dummyHead.next = node;
-        node.pre = dummyHead;
-        node.next.pre = node;
-        map.put(node.key, node);
-    }
-
-
-    class DoublyListNode {
-        int key;
+    private class Node{
+        Node left;
+        Node right;
         int val;
-        DoublyListNode pre;
-        DoublyListNode next;
-        DoublyListNode(int key, int val) {
+        int key;
+        public Node(int key, int val){
             this.key = key;
             this.val = val;
         }
     }
+    //============================================================
+    private int capacity;
+    //============================================================
+    private Map<Integer, Node> map;
+    private Node head;
+    private Node tail;
+    // tail: latest access
 
+    public LRUCache(int capacity) {
+        //========================================================
+        this.capacity = capacity;
+        //========================================================
+        this.head = new Node(-1, -1);
+        this.tail = new Node(-1, -1);
+        head.right = tail;
+        tail.left = head;
+        this.map = new HashMap<>();
+    }
+
+    public int get(int key) {
+        if(!map.containsKey(key)){
+            return -1;
+        }
+
+        Node cur = map.get(key);
+        cur.left.right = cur.right;
+        cur.right.left = cur.left;
+        moveToTail(cur);
+
+        return cur.val;
+    }
+
+    public void set(int key, int value) {
+        if(get(key) != -1){
+            map.get(key).val = value;
+            return;
+        }
+        //========================================================
+        if(map.size() == capacity){
+            map.remove(head.right.key);
+            head.right = head.right.right;
+            head.right.left = head;
+        }
+        //=========================================================
+
+        Node newNode = new Node(key, value);
+        map.put(key, newNode);
+        moveToTail(newNode);
+    }
+
+    private void moveToTail(Node n){
+        tail.left.right = n;
+        n.left = tail.left;
+
+        tail.left = n;
+        n.right = tail;
+    }
+
+    public void remove(int key){
+        if(!map.containsKey(key)){
+            return;
+        }
+        Node cur = map.get(key);
+        cur.left.right = cur.right;
+        cur.right.left = cur.left;
+        map.remove(key);
+    }
+
+    public int getMostRecent(){
+        if(tail.left != head){
+            return tail.left.val;
+        }
+        return -1;
+    }
 
     public static void main(String[] arg) {
         LRUCache a = new LRUCache(3);

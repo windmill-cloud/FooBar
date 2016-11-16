@@ -1,11 +1,10 @@
-/**
- * Created by Christina on 2/19/16.
- */
+package strings;
+
 public class ReverseWordsInaString {
     //O(n), O(n)
     public String reverseWordsInaString(String s) {
-//        String[] parts = s.trim().split("\\s+");
-        String[] parts = s.trim().split(" ");
+        String[] parts = s.trim().split("\\s+");
+        //String[] parts = s.trim().split(" ");
         String out = "";
         if (parts.length > 0) {
             for (int i = parts.length - 1; i > 0; i--) {
@@ -18,7 +17,7 @@ public class ReverseWordsInaString {
 
 
     //in place
-    //swap the whole sentance then the single word
+    //reverse the whole sentence then reverse each single word
     public void reverseWordsInaString1(char[] s) {
         if (s == null || s.length <= 2) {return;}
         for (int i = 0; i < (s.length >> 1); i++) {
@@ -41,7 +40,6 @@ public class ReverseWordsInaString {
         s[i] = s[j];
         s[j] = temp;
     }
-
 
     public static void main(String[] arg) {
         ReverseWordsInaString a = new ReverseWordsInaString();

@@ -4,6 +4,13 @@
 public class LongestCommonSubstring {
     //O(n^2)
     public static int find(char [] A, char [] B){
+        //
+        // Create a table to store lengths of longest common suffixes of
+        // substrings.   Notethat LCSuff[i][j] contains length of longest
+        // common suffix of X[0..i-1] and Y[0..j-1]. The first row and
+        // first column entries have no logical meaning, they are used only
+        // for simplicity of program
+
         int[][] LCS = new int[A.length + 1][B.length + 1];
         // if A is null then LCS of A, B =0
         for (int i = 0; i <= B.length; i++) {
@@ -36,6 +43,8 @@ public class LongestCommonSubstring {
         }
         return result;
     }
+
+
     public static void main(String[] args) {
         String A = "tutorialhorizon";
         String B = "dynamictutorialProgramming";

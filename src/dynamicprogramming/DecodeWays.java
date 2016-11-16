@@ -107,7 +107,7 @@ public class DecodeWays {
         return dp[s.length()];
     }
 
-    //======================================== find all the ways to decode ===============================================
+    //======================================== find all the ways to decode =============================================
     // 'Time complexity: O(1.6 ^ n)'
     public List<String> decode(String num) {
         List<String> result = new ArrayList<>();
@@ -135,6 +135,31 @@ public class DecodeWays {
         }
     }
 
+
+    //===========================================Map is not continuous=================================================
+
+    public int numDecodingsNotContinuous(String s, int[] map) {
+        if(s == null || s.length() == 0){
+            return 0;
+        }
+        int[] dp = new int[s.length()+1];
+
+        dp[0] = 1;
+
+        for(int i = 1; i<= s.length();i++) {
+            for (int j = 0; j < map.length; j++) {
+                String needle = String.valueOf(map[j]);
+                String haystack = s.substring(0, i);
+                int pos = haystack.lastIndexOf(needle);
+                if ( pos >= 0 && pos== i - needle.length()) {
+                    dp[i] += dp[i - needle.length()];
+                }
+            }
+        }
+        return dp[s.length()];
+    }
+
+
     public static void main(String[] arg) {
         DecodeWays a = new DecodeWays();
         System.out.println(a.numDecodings("1231"));
@@ -147,6 +172,8 @@ public class DecodeWays {
 
         System.out.println(a.numDecodings("1291112432"));
         System.out.println(a.numDecodings1("1291112432"));
+
+        System.out.println(a.numDecodingsNotContinuous("1234", new int[]{1, 23, 2, 34, 4, 3}));
         System.out.println();
     }
 }
