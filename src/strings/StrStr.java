@@ -1,8 +1,7 @@
+package strings;
+
 import java.util.*;
 
-/**
- * Created by Christina on 2/20/16.
- */
 public class StrStr {
     //ordered
     //m * n, O(1)
@@ -39,7 +38,7 @@ public class StrStr {
         if (hayLen < neeLen) {
             return -1;
         }
-        if (needle == "") {
+        if (needle.equals("")) {
             return 0;
         }
 

@@ -1,8 +1,6 @@
 package heapandsort;
 
-/**
- * Created by Christina on 2/25/16.
- */
+
 public class MergeSortedArray {
     //merge into nums1
     public void merge(int[] nums1, int m, int[] nums2, int n) {

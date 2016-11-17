@@ -49,6 +49,12 @@ public class BuyAndSellStock__ {
      * the different transactions fee
      *  Single transaction
      * */
+
+    // maintain a veriable which is the profit we make
+    // when the prices is continuously acending,
+    // when today's prices is lower than yesterday,
+    // which means we finish one transaction,
+    // calculate the final profit with charge, if > 0 add to result
     public int getMaxProfit2(int prices[], int[] fee) {
         if (prices.length < 2) {return 0;}
         int min = prices[0] + fee[0], max = prices[0] - fee[0], ret = 0;
