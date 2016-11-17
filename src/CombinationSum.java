@@ -149,6 +149,7 @@ public class CombinationSum {
         return dp[target];
     }
 
+    //  find the number of possible combinations that add up to a positive integer target.
     // [1, 2, 3] target = 4
     /*
     i = 0

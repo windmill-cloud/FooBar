@@ -67,6 +67,37 @@ public class TaskSchedule {
         }
         return Math.max(nums.length, (maxFreq - 1) * (interval + 1) + countOfMax);
     }
+    /*
+    47. 老外面试官，给一个String, 如AABACCDCD, 插入'_'使同一个字母间隔为k: 如果k=3: A___AB__AC___CD__CD, 一开始理解有误，
+    认为是要先shuffle字母顺序然后插入'_'，花了不少时间，然后面试官提示字母顺序不变，写出来，然后直接run出来有bug，在coderpad上调了一会才通过
+(arrange missions)
+     */
+    public String arrange(String input, int k) {
+        if (input.length() <= 1) {
+            return input;
+        }
+        StringBuilder result = new StringBuilder();
+        HashMap<Character, Integer> eventToTime = new HashMap<>();
+        int time = 0;
+        char[] events = input.toCharArray();
+        for (int i = 0; i < events.length; i++) {
+            time++;
+            if (!eventToTime.containsKey(events[i]) || time - eventToTime.get(events[i]) > k) {
+                eventToTime.put(events[i], time);
+            }
+            else {
+                int gap = k - (time - eventToTime.get(events[i]) - 1);
+                while (gap > 0) {
+                    result.append('_');
+                    gap--;
+                }
+                time = k + eventToTime.get(events[i]) + 1;
+                eventToTime.put(events[i], time);
+            }
+            result.append(events[i]);
+        }
+        return result.toString();
+    }
 
     public static void main(String[] arg) {
         TaskSchedule a = new TaskSchedule();

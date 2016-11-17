@@ -39,9 +39,7 @@ public class BSTToSortedDoublyLinkedList {
         return head;
     }
 
-
-
-    //turn to a stuctures.TreeNode
+    //turn to a structures.TreeNode
     public TreeNode convert1(TreeNode root) {
         if (root == null) {return null;}
         Stack<TreeNode> stack = new Stack<>();
@@ -72,7 +70,6 @@ public class BSTToSortedDoublyLinkedList {
         tail.right = head;
         return head;
     }
-
 
     //dfs
     public TreeNode convert2(TreeNode root) {

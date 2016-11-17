@@ -1,12 +1,11 @@
+package binarytree;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
-/**
- * Created by Christina on 2/29/16.
- */
-public class GetDistanceBwteenMarkedNode {
+public class GetDistanceBetweenMarkedNode {
     //marked
     public int getDis(TreeNode root) {
         if (root == null || root.left == null && root.right == null) return -1;
@@ -81,7 +80,7 @@ public class GetDistanceBwteenMarkedNode {
         root.right.left.marked = true;
         root.left.marked = true;
 
-        GetDistanceBwteenMarkedNode a = new GetDistanceBwteenMarkedNode();
+        GetDistanceBetweenMarkedNode a = new GetDistanceBetweenMarkedNode();
         System.out.println(a.getDis(root));
 
 

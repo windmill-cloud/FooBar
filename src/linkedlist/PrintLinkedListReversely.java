@@ -1,11 +1,11 @@
+package linkedlist;
+
 import structures.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Christina on 2/29/16.
- */
+
 public class PrintLinkedListReversely {
     //recursively
     //O(n), O(n)

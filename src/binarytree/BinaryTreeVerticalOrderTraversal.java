@@ -55,6 +55,7 @@ public class BinaryTreeVerticalOrderTraversal {
         return res;
     }
 
+    // list
 
     public List<List<Integer>> verticalOrder(TreeNode root) {
         if (root == null) {return new ArrayList<>();}
@@ -62,37 +63,37 @@ public class BinaryTreeVerticalOrderTraversal {
         List<List<Integer>> left = new ArrayList<>();
         List<List<Integer>> right = new ArrayList<>();
 
-        Queue<TreeNode> que = new LinkedList<>();
-        Queue<Integer> index = new LinkedList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        Queue<Integer> cols = new LinkedList<>();
 
-        que.add(root);
-        index.add(0);
+        q.add(root);
+        cols.add(0);
 
-        while (!que.isEmpty()) {
-            TreeNode node = que.poll();
-            int idx = index.poll();
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            int col = cols.poll();
 
             if (node.left != null) {
-                que.add(node.left);
-                index.add(idx - 1);
+                q.add(node.left);
+                cols.add(col - 1);
             }
             if (node.right != null) {
-                que.add(node.right);
-                index.add(idx + 1);
+                q.add(node.right);
+                cols.add(col + 1);
             }
 
-            if (idx >= 0) {
-                if (idx == right.size()) {
+            if (col >= 0) {
+                if (col == right.size()) {
                     right.add(new ArrayList<>(Arrays.asList(node.val)));
                 } else {
-                    right.get(idx).add(node.val);
+                    right.get(col).add(node.val);
                 }
             } else {
-                idx = -idx - 1;
-                if (idx == left.size()) {
+                col = -col - 1;
+                if (col == left.size()) {
                     left.add(new ArrayList<>(Arrays.asList(node.val)));
                 } else {
-                    left.get(idx).add(node.val);
+                    left.get(col).add(node.val);
                 }
             }
         }

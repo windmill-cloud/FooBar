@@ -85,7 +85,13 @@ public class DivideTwoIntegers {
     public int divide1(int dividend, int divisor) {
 
         //overflow
-        if (divisor == 0 || (divisor == -1 && dividend==Integer.MIN_VALUE)) { return Integer.MAX_VALUE; }
+        if (divisor == 0 ){
+            throw new ArithmeticException(
+                    "Division by 0 is undefined: " + dividend + "/" + divisor);
+
+        }
+
+        if (divisor == -1 && dividend==Integer.MIN_VALUE){ return Integer.MAX_VALUE; }
 
         //dividend == 0
         if (dividend == 0) { return 0; }
@@ -112,6 +118,33 @@ public class DivideTwoIntegers {
         return ret * sign;
     }
 
+    // dividend/divisor
+    public static int divideInt(int dividend, int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException(
+                    "Division by 0 is undefined: " + dividend + "/" + divisor);
+        }
+        if (divisor == -1 && dividend==Integer.MIN_VALUE){ return Integer.MAX_VALUE; }
+
+        //dividend == 0
+        if (dividend == 0) { return 0; }
+
+        //the result is positive/negative
+        int sign = dividend > 0 && divisor > 0 || dividend < 0 && divisor < 0 ? 1 : -1;
+        long dvd = Math.abs((long) dividend), dvs = Math.abs((long) divisor);
+
+        //特殊情况
+        if (dvd < dvs) { return 0; }
+        if (dvs == 1) { return dividend * divisor; }
+
+        int ret = 0;
+        while (dividend >= 0) {
+            dividend -= divisor;
+            ret++;
+        }
+        return (ret - 1) * sign;
+    }
+
     public static void main(String[] arg) {
         DivideTwoIntegers a = new DivideTwoIntegers();
 
@@ -121,5 +154,30 @@ public class DivideTwoIntegers {
         System.out.println(a.divide1(-7, 3));
         System.out.println(a.divide(2, 2));
         System.out.println(a.divide1(2, 2));
+        System.out.println(divideInt(-7, 3));
     }
+
+    /*
+    public static double divideDouble(double dividend, double divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException(
+                    "Division by 0 is undefined: " + dividend + "/" + divisor);
+        }
+        int sign = 1;
+        if (dividend < 0) {
+            dividend = -dividend;
+            sign = -sign;
+        }
+        if (divisor < 0) {
+            divisor = -divisor;
+            sign = -sign;
+        }
+        double result = 0;
+        while (dividend >= 0) {
+            dividend -= divisor;
+            result++;
+        }
+        return (result - 1) * sign;
+    }
+    */
 }

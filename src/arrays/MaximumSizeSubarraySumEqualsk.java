@@ -42,6 +42,27 @@ public class MaximumSizeSubarraySumEqualsk {
         }
         return false;
     }
+
+    public boolean find(int[][] matrix, int target) {
+        for (int right = 0; right < matrix[0].length; right++) {
+            int[] rowSum = new int[matrix.length];
+            for (int left = right; left >= 0; left--) {
+                Set<Integer> sum = new HashSet<>();
+                int curSum = 0;
+                sum.add(0);
+                for (int row = 0; row < matrix.length; row++) {
+                    rowSum[row] += matrix[row][left];
+                    curSum += rowSum[row];
+                    if (sum.contains(curSum - target)) {
+                        return true;
+                    }
+                    sum.add(curSum);
+                }
+            }
+        }
+        return false;
+    }
+
     /*
     Example 1:
     Given nums = [1, -1, 5, -2, 3], k = 3,
@@ -51,6 +72,7 @@ public class MaximumSizeSubarraySumEqualsk {
     Given nums = [-2, -1, 2, 1], k = 1,
     return 2. (because the subarray [-1, 2] sums to 1 and is the longest)
      */
+
 
     public static void main(String[] arg) {
         MaximumSizeSubarraySumEqualsk a = new MaximumSizeSubarraySumEqualsk();

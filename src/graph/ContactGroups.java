@@ -1,8 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by xuanwang on 11/3/16.
@@ -77,6 +75,92 @@ public class ContactGroups {
         }
         return root;
     }
+
+    static class UnionFind{
+        String[] emailArray;
+        //index in the array
+        int[] groups;
+        public UnionFind(String[] emailArray){
+            this.emailArray = emailArray;
+            this.groups = new int[emailArray.length];
+            for(int i = 0; i < groups.length; i ++){
+                groups[i] = i;
+            }
+        }
+
+        public int find(int i){
+            while(groups[i] != i){
+                i = groups[i];
+            }
+            return i;
+        }
+
+        public void union(int to, int from){
+            int toParent = find(to);
+            int fromParent = find(from);
+            if(toParent != fromParent){
+                groups[fromParent] = toParent;
+            }
+        }
+
+        public void printUnion(){
+            HashMap<Integer,List<Integer>> map = new HashMap<Integer, List<Integer>>();
+            for(int i = 0; i < groups.length; i ++){
+                int parent = find(i);
+                map.putIfAbsent(parent, new ArrayList<Integer>());
+                map.get(parent).add(i);
+            }
+            for(Integer key: map.keySet()){
+                for(Integer entry: map.get(key)){
+                    System.out.print(emailArray[entry] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    public static void contactDedup(HashMap<Integer, List<String>> input){
+        Set<String> emailSet = new HashSet<String>();
+        for(Integer key: input.keySet()){
+            for(String email: input.get(key)){
+                emailSet.add(email);
+            }
+        }
+        String[] emailArray = new String[emailSet.size()];
+        int count = 0;
+        HashMap<String, Integer> indexMapping = new HashMap<String, Integer>();
+        for(String email: emailSet){
+            indexMapping.put(email, count);
+            emailArray[count ++] = email;
+        }
+        UnionFind uf = new UnionFind(emailArray);
+        for(Integer key: input.keySet()){
+            List<String> l = input.get(key);
+            if(l.size() == 0){
+                continue;
+            }
+            int parent = indexMapping.get(l.get(0));
+            for(int i = 1; i < l.size(); i ++){
+                uf.union(parent, indexMapping.get(l.get(i)));
+            }
+        }
+        uf.printUnion();
+    }
+
+    public static void main(String[] args){
+        HashMap<Integer, List<String>> input = new HashMap<Integer, List<String>>();
+        input.put(1, new ArrayList<String>(Arrays.asList("a","b","c")));
+        input.put(2, new ArrayList<String>(Arrays.asList("a")));
+        input.put(3, new ArrayList<String>(Arrays.asList("x")));
+        input.put(4, new ArrayList<String>(Arrays.asList("y","z")));
+        input.put(5, new ArrayList<String>(Arrays.asList("y","z")));
+        contactDedup(input);
+    }
 }
+
+
+
+
+
 
 
