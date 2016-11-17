@@ -2,20 +2,20 @@ package heapandsort;
 
 import java.util.*;
 
-public class KClosestPoints {
+public class KClosestNearestPoints {
 
     //heap better
+    // maintain a max heap with size K,
+    // every time meet a new point, check if its distance is
+    // smaller than the heap.peek()
+    // if yes, pop out the peek, push this point into heap
+    // in the end we will have K points which are the nearest points
     //O(N lg K) running time + O(K) memory
     public List<Point> getKClosest(List<Point> points, int k) {
         if(points == null || points.size() == 0) {
             return new ArrayList<>();
         }
-        Queue<Point> heap = new PriorityQueue<>(k, new Comparator<Point>() {
-            @Override
-            public int compare(Point a, Point b) {
-                return distance(a) - distance(b);
-            }
-        });
+        Queue<Point> heap = new PriorityQueue<>(k, (a, b) -> distance(a) - distance(b));
         for(Point p : points) {
             heap.add(p);
         }
@@ -56,10 +56,16 @@ public class KClosestPoints {
     //i < j
 
     public void swap(List<Point> points, int i, int j) {
+        Point temp = points.get(i);
+        points.set(i, points.get(j));
+        points.set(j, temp);
+
+        /*
         points.add(i, points.get(j));
         points.add(j + 1, points.get(i + 1));
         points.remove(i + 1);
         points.remove(j + 1);
+        */
     }
 
     public int distance(Point p) {
@@ -82,7 +88,7 @@ public class KClosestPoints {
 
     public static void main(String[] args) {
         List<Point> points = new ArrayList<Point>();
-        KClosestPoints a = new KClosestPoints();
+        KClosestNearestPoints a = new KClosestNearestPoints();
         points.add(new Point(1,1));
         points.add(new Point(1,2));
         points.add(new Point(2,1));

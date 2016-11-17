@@ -21,6 +21,7 @@ public class PrintPathFromRootToLeaf {
         sb.append(root.val);
         if(root.left == null && root.right == null) {
             res.add(sb.toString());
+            //System.out.println(sb.toString());
         } else {
             sb.append("->");
             helper(res, root.left, sb);
@@ -41,6 +42,7 @@ public class PrintPathFromRootToLeaf {
             TreeNode n = q.poll();
             if(null==n.left && null==n.right){
                 ret.add(printPath(parent, n));
+                //System.out.println(printPath(parent, n));
             } else {
                 if(null!=n.left){
                     parent.put(n.left, n);
