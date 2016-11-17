@@ -58,69 +58,6 @@ public class IntervalsMeetingRooms {
         return ans;
     }
 
-    //O(nLog(n)), O(1)
-    //sorted, unsorted, 一个, 两个不干涉, 两个干涉, 多个干涉
-    public static List<String> mergeTime(List<String> ints) {
-        List<String> ans = new ArrayList<>();
-        if(ints == null || ints.size() == 0) return ans;
-        Map<Integer, String> intToStr = new HashMap<Integer, String>(){{
-            put(1, "January");
-            put(2, "February");
-            put(3, "March");
-            put(4, "April");
-            put(5, "May");
-            put(6, "June");
-            put(7, "July");
-            put(8, "August");
-            put(9, "September");
-            put(10, "October");
-            put(11, "November");
-            put(12, "December");
-
-        }};
-        Map<String, String> strToInt = new HashMap<String, String>(){{
-            put("January", "01");
-            put("February", "02");
-            put("March", "03");
-            put("April", "04");
-            put("May", "05");
-            put("June", "06");
-            put("July", "07");
-            put("August", "08");
-            put("September", "09");
-            put("October", "10");
-            put("November", "11");
-            put("December", "12");
-        }};
-
-        List<Interval> intervals = new ArrayList<>();
-        for(String s: ints){
-            String[] t = s.split("\\s+");
-            int start = Integer.parseInt(t[1] + strToInt.get(t[0]));
-            int end = Integer.parseInt(t[4] + strToInt.get(t[3]));
-            intervals.add(new Interval(start, end));
-        }
-
-
-        Collections.sort(intervals, (a,b) -> a.start - b.start);
-        Interval pre = intervals.get(0);
-        int start = pre.start;
-        int end = pre.end;
-        for(int i = 1; i < intervals.size(); i++){
-            Interval cur = intervals.get(i);
-            if(cur.start > end){
-                String entry =  startEndToString(intToStr, start, end);
-                ans.add(entry);
-                start = cur.start;
-                end = cur.end;
-            }else{
-                end = Math.max(end, cur.end);
-            }
-        }
-        ans.add(startEndToString(intToStr, start, end));
-        return ans;
-    }
-
     private static String startEndToString(Map<Integer, String> intToStr, int start, int end){
         StringBuilder sb = new StringBuilder();
         sb.append(intToStr.get(start % 100));  sb.append(" ");
@@ -207,6 +144,69 @@ public class IntervalsMeetingRooms {
             heap.offer(top);
         }
         return heap.peek().end;
+    }
+
+    //O(nLog(n)), O(1)
+    //sorted, unsorted, 一个, 两个不干涉, 两个干涉, 多个干涉
+    public static List<String> mergeTime(List<String> ints) {
+        List<String> ans = new ArrayList<>();
+        if(ints == null || ints.size() == 0) return ans;
+        Map<Integer, String> intToStr = new HashMap<Integer, String>(){{
+            put(1, "January");
+            put(2, "February");
+            put(3, "March");
+            put(4, "April");
+            put(5, "May");
+            put(6, "June");
+            put(7, "July");
+            put(8, "August");
+            put(9, "September");
+            put(10, "October");
+            put(11, "November");
+            put(12, "December");
+
+        }};
+        Map<String, String> strToInt = new HashMap<String, String>(){{
+            put("January", "01");
+            put("February", "02");
+            put("March", "03");
+            put("April", "04");
+            put("May", "05");
+            put("June", "06");
+            put("July", "07");
+            put("August", "08");
+            put("September", "09");
+            put("October", "10");
+            put("November", "11");
+            put("December", "12");
+        }};
+
+        List<Interval> intervals = new ArrayList<>();
+        for(String s: ints){
+            String[] t = s.split("\\s+");
+            int start = Integer.parseInt(t[1] + strToInt.get(t[0]));
+            int end = Integer.parseInt(t[4] + strToInt.get(t[3]));
+            intervals.add(new Interval(start, end));
+        }
+
+
+        Collections.sort(intervals, (a,b) -> a.start - b.start);
+        Interval pre = intervals.get(0);
+        int start = pre.start;
+        int end = pre.end;
+        for(int i = 1; i < intervals.size(); i++){
+            Interval cur = intervals.get(i);
+            if(cur.start > end){
+                String entry =  startEndToString(intToStr, start, end);
+                ans.add(entry);
+                start = cur.start;
+                end = cur.end;
+            }else{
+                end = Math.max(end, cur.end);
+            }
+        }
+        ans.add(startEndToString(intToStr, start, end));
+        return ans;
     }
 
 
