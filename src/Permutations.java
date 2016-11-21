@@ -45,7 +45,7 @@ public class Permutations {
         // note that when values are equals, proceed the pointer!
         // same for line 22
         while (p >= 0 && num[p] >= num[p + 1]) {
-            // move p to left as long as its value is larger than next num
+            // move p to left as long as its value is smaller than next num
             // we want to find the end of increasing sequence (from end to start)
             p--;
         }
@@ -54,7 +54,7 @@ public class Permutations {
             reverse(num, 0, len - 1);
             return;// num;
         }
-        // replace number at p with an larger value found in the right of p
+        // replace number at p with an smaller value found in the right of p
         int w = len - 1;
         while (num[w] <= num[p]) {
             w--;

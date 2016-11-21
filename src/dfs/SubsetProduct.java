@@ -5,14 +5,17 @@ import java.util.*;
  * Created by xuanwang on 11/3/16.
  */
 public class SubsetProduct {
-    public List<Integer> product(int[] input) {
+
+    // O(2^n)
+    public static List<Integer> product(int[] input) {
         Set<Integer> set = new HashSet<>();
         Arrays.sort(input);
         helper(set, 1, 0, input, true);
         return new ArrayList<Integer>(set);
     }
 
-    private void helper(Set<Integer> result, int curProduct, int pos, int[] input, boolean first) {
+
+    private static void helper(Set<Integer> result, int curProduct, int pos, int[] input, boolean first) {
         if (!first) {
             result.add(curProduct);
         }
@@ -30,5 +33,9 @@ public class SubsetProduct {
             curProduct /= input[i];
 
         }
+    }
+
+    public static void main(String[] args){
+        System.out.println(product(new int[]{1,2,3,4}));
     }
 }

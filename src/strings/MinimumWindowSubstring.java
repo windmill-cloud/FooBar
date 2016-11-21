@@ -13,7 +13,8 @@ public class MinimumWindowSubstring {
     3-2) If the character indeed exists in t, we still remove it, but in the next step, we will increase the right pointer and expect the removed character. If find so, repeat step 3.
      */
     public String minWindowShort(String s, String t) {
-        HashMap<Character, Integer> map = new HashMap();
+        // Character, count
+        HashMap<Character, Integer> map = new HashMap<>();
         for(char c : t.toCharArray()){
             map.put(c, map.getOrDefault(c, 0) + 1);
             //map.put(c, 1); variation: no matter how many times a char appears in String t.

@@ -33,7 +33,7 @@ public class SerializeandDeserializeBinaryTree {
                     rst.append("n ");
                     continue;
                 }
-                rst.append(currTree.val + " ");
+                rst.append(currTree.val).append(" ");
                 que.add(currTree.left);
                 que.add(currTree.right);
             }

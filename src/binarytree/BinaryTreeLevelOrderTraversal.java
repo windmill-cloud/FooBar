@@ -48,26 +48,39 @@ public class BinaryTreeLevelOrderTraversal {
         return rst;
     }
 
-    public int maxDepth(TreeNode root) {
-        if(root == null) {
-            return 0;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        int count = 0;
-        while(!queue.isEmpty()) {
-            int size = queue.size();
-            for(int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                if(node.left != null) {
-                    queue.offer(node.left);
-                }
-                if(node.right != null) {
-                    queue.offer(node.right);
+
+    public List<List<Integer>> levelOrderLargestTwo(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if(root == null) return ans;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty()){
+            int n = q.size();
+            if(n < 2) {
+                System.out.println("null");
+                continue;
+            }
+
+            int maxOne = Integer.MIN_VALUE;
+            int maxTwo = Integer.MIN_VALUE;
+
+            for(int i = 0; i< n;i++){
+                TreeNode tn = q.poll();
+                if(tn.left != null) q.offer(tn.left);
+                if(tn.right != null) q.offer(tn.right);
+                if(maxOne < tn.val){
+                    maxTwo = maxOne;
+                    maxOne = tn.val;
+                } else if (maxTwo < n) {
+                    maxTwo = n;
                 }
             }
-            count++;
+            List<Integer> temp = new ArrayList<Integer>();
+            temp.add(maxTwo);
+            temp.add(maxOne);
+            ans.add(temp);
         }
-        return count;
+        return ans;
     }
+
 }

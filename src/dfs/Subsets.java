@@ -70,6 +70,53 @@ public class Subsets {
     }
 
 
+
+
+    public static List<Integer> primeProduct(int[] nums){
+        List<Integer> ans = new ArrayList<>();
+        if(nums == null || nums.length == 0){
+            return ans;
+        }
+        Arrays.sort(nums);
+        helperPrimeProduct(ans, 1, 0, nums);
+        return ans;
+    }
+
+
+    public static void helperPrimeProduct(List<Integer> ans, int path, int start, int[] nums){
+        ans.add(path);
+
+        for(int i = start; i < nums.length; i++){
+            if(i > start && nums[i] == nums[i-1]) continue;
+            helperPrimeProduct(ans, path * nums[i], i+1, nums);
+            //path.remove(path.size()-1);
+        }
+    }
+
+    //========================================  ================================================
+
+    public static List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if(nums == null || nums.length == 0){
+            return ans;
+        }
+        Arrays.sort(nums);
+        helperSubsetsWithDup(ans, new ArrayList<Integer>(), 0, nums);
+        return ans;
+    }
+
+    private static void helperSubsetsWithDup(List<List<Integer>> ans, List<Integer> path, int start, int[] nums){
+        ans.add(new ArrayList<Integer>(path));
+
+        for(int i = start; i < nums.length; i++){
+            if(i > start && nums[i] == nums[i-1]) continue;
+            path.add(nums[i]);
+            helperSubsetsWithDup(ans, path, i+1, nums);
+            path.remove(path.size()-1);
+        }
+    }
+
+
     public static void main(String[] arg) {
         Subsets a = new Subsets();
         System.out.println(a.subsets(new int[]{1, 2, 3}));

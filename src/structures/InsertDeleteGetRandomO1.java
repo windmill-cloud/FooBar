@@ -6,7 +6,7 @@ import java.util.*;
  * Created by xuanwang on 10/31/16.
  */
 public class InsertDeleteGetRandomO1 {
-
+    // value, index
     Map<Integer, Integer> map;
     List<Integer> list;
     Random rand;
