@@ -85,8 +85,5 @@ public class NumberofIslands {
         };
         System.out.println(a.numIslands(grid));
         System.out.println(a.numIslands1(grid1));
-
     }
-
-
 }

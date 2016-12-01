@@ -1,15 +1,14 @@
+package strings;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Christina on 2/16/16.
- */
 public class IntegertoEnglishWords {
     private final String[] lessThan20 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
     private final String[] tens = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
     private final String[] thousands = {"", "Thousand", "Million", "Billion"};
 
-
+    //TODO: negative
     //using list
     public String numberToWords(int num) {
         if (num == 0) { return "Zero"; }

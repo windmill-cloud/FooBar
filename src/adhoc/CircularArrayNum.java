@@ -63,6 +63,7 @@ public class CircularArrayNum {
     }
 
     public static int findMaxRotated(int[] nums){
+        //TODO: go through this algorithm
         int n = nums.length;
         int[] shifts = new int[n];
         for(int i=0; i < n; i++) {

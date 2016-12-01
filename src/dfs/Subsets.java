@@ -8,9 +8,13 @@ import java.util.List;
  * Created by Christina on 1/13/16.
  */
 public class Subsets {
-
+    //TODO: iterator
     //BFS
     //类似数电
+    //[]
+    //[] [1]
+    //[] [1] [2] [1, 2]
+    //[] [1] [2] [1, 2] [3] [1, 3] [2, 3] [1, 2, 3]
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> rst = new ArrayList<>();
         if (nums.length == 0) return rst;
@@ -30,6 +34,26 @@ public class Subsets {
 
     //bit maniputation
     //O(n^2), O(1<<len)
+    /*
+    Bit Manipulation
+
+This is the most clever solution that I have seen. The idea is that to give all the possible subsets,
+we just need to exhaust all the possible combinations of the numbers. And each number has only two possibilities:
+either in or not in a subset. And this can be represented using a bit.
+
+There is also another a way to visualize this idea. That is, if we use the above example,
+1 appears once in every two consecutive subsets,
+2 appears twice in every four consecutive subsets,
+and 3 appears four times in every eight subsets, shown in the following (initially the 8 subsets are all empty):
+
+[], [], [], [], [], [], [], []
+
+[], [1], [], [1], [], [1], [], [1]
+
+[], [1], [2], [1, 2], [], [1], [2], [1, 2]
+
+[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]
+     */
     public List<List<Integer>> subsets1(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> rst = new ArrayList<>();
@@ -47,6 +71,8 @@ public class Subsets {
     }
 
     //dfs
+    //The number of recursive calls, T(n) satisfies the recurrence T(n) = T(n - 1) + T(n - 2) + ... + T(1) + T(0),
+    // which solves to T(n) = O(2^n). Since we spend O(n) time within a call, the time complexity is O(n2^n);
     public List<List<Integer>> subsets2(int[] nums) {
         Arrays.sort(nums);
         return dfs(nums, 0);
@@ -68,9 +94,6 @@ public class Subsets {
         }
         return ret;
     }
-
-
-
 
     public static List<Integer> primeProduct(int[] nums){
         List<Integer> ans = new ArrayList<>();

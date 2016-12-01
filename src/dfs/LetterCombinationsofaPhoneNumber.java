@@ -1,9 +1,6 @@
 package dfs;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LetterCombinationsofaPhoneNumber {
 
@@ -29,10 +26,8 @@ public class LetterCombinationsofaPhoneNumber {
                 }
             }
         }
-
         return rst;
     }
-
 
     public List<String> letterCombinationsII(String digits) {
         List<String> ans = new ArrayList<String>();
@@ -53,26 +48,66 @@ public class LetterCombinationsofaPhoneNumber {
         map.put('8', new char[] { 't', 'u', 'v'});
         map.put('9', new char[] { 'w', 'x', 'y', 'z' });
 
-
-        helper(ans, "", digits, 0, map);
+        StringBuilder sb = new StringBuilder();
+        helper(ans, sb, digits, 0, map);
 
         return ans;
     }
 
-    private void helper(List<String> ans, String path, String digits, int pos, Map<Character, char[]> map) {
+    private void helper(List<String> ans, StringBuilder path, String digits, int pos, Map<Character, char[]> map) {
         if (path.length() == digits.length()) {
-            ans.add(path);
+            ans.add(path.toString());
             return;
         }
 
         for (char c : map.get(digits.charAt(pos))) {
-            helper(ans, path + c, digits, pos+1, map);
+            path.append(c);
+            helper(ans, path, digits, pos+1, map);
+            path.setLength(path.length()-1);
+        }
+    }
+
+    //  character -> List<Character
+
+    public List<String> letterCombinationsArrayList(String digits) {
+        List<String> result = new ArrayList<>();
+
+        if (digits == null || digits.equals("")){
+            return result;
+        }
+        Map<Character, List<Character>> map = new HashMap<>();
+        map.put('0', Arrays.asList());
+        map.put('1', Arrays.asList());
+        map.put('2', Arrays.asList('a', 'b', 'c'));
+        map.put('3', Arrays.asList('d', 'e', 'f'));
+        map.put('4', Arrays.asList('g', 'h', 'i'));
+        map.put('5', Arrays.asList('j', 'k', 'l'));
+        map.put('6', Arrays.asList('m', 'n', 'o' ));
+        map.put('7', Arrays.asList('p', 'q', 'r', 's' ));
+        map.put('8', Arrays.asList('t', 'u', 'v'));
+        map.put('9', Arrays.asList('w', 'x', 'y', 'z' ));
+
+        StringBuilder sb = new StringBuilder();
+        helper(map, digits, sb, result);
+        return result;
+
+    }
+
+    private void helper(Map<Character, List<Character>> map, String digits, StringBuilder sb, List<String> result){
+        if (sb.length() == digits.length()){
+            result.add(sb.toString());
+            return;
+        }
+        for (char c : map.get(digits.charAt(sb.length()))){
+            sb.append(c);
+            helper(map, digits, sb, result);
+            sb.deleteCharAt(sb.length()-1);
         }
     }
 
     public static void main(String[] arg) {
         LetterCombinationsofaPhoneNumber a = new LetterCombinationsofaPhoneNumber();
-        System.out.println(a.letterCombinations("2792"));
-        System.out.println(a.letterCombinations("23"));
+        System.out.println(a.letterCombinationsII("2792"));
+        System.out.println(a.letterCombinationsArrayList("2792"));
     }
 }

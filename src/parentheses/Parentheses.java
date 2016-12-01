@@ -99,7 +99,7 @@ public class Parentheses {
     }
 
     /*
-    The idea is simple, we only update the result (max) when we find a "pair".
+    we only update the result (max) when we find a "pair".
     If we find a pair. We throw this pair away and see how big the gap is between current and previous invalid.
     EX: "( )( )"
     stack: -1, 0,
