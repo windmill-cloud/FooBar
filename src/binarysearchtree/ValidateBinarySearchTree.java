@@ -1,11 +1,11 @@
+package binarysearchtree;
+
 import structures.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Stack;
 
-/**
- * Created by Christina on 12/25/15.
- */
+
 public class ValidateBinarySearchTree {
     /**
      * Assume a BST is defined as follows:
@@ -13,6 +13,47 @@ public class ValidateBinarySearchTree {
      The right subtree of a node contains only nodes with keys greater than the node's key.
      Both the left and right subtrees must also be binary search trees.
      */
+    //iterative: O(n) time O(n) space
+    public class SolutionInorder {
+        public boolean isValidBST(TreeNode root) {
+            if (root == null) {
+                return true;
+            }
+            TreeNode prev = null;
+            Stack<TreeNode> stack = new Stack<>();
+            while (root != null || !stack.empty()) {
+                while (root != null) {
+                    stack.push(root);
+                    root = root.left;
+                }
+                root = stack.pop();
+                if (prev != null && root.val <= prev.val) {
+                    return false;
+                }
+                prev = root;//remember to update the prev !!!
+                root = root.right;
+            }
+            return true;
+        }
+    }
+    // dfs recursive solution: O(n) time O(h) space
+    public class SolutionDFS {
+        private TreeNode prev = null;
+
+        public boolean isValidBST(TreeNode root) {
+            if (root == null) {
+                return true;
+            }
+            boolean left = isValidBST(root.left);
+            boolean curr = true;
+            if (prev != null && root.val <= prev.val) {
+                curr = false;
+            }
+            prev = root;
+            boolean right = isValidBST(root.right);
+            return left && right && curr;
+        }
+    }
 
     //O(n), space: O(logn), worst: O(n)
     public boolean isValidBST(TreeNode root) {
@@ -36,8 +77,6 @@ public class ValidateBinarySearchTree {
         }
         return root.val > min && root.val < max && isValidBST1(root.left, min, root.val) && isValidBST1(root.right, root.val, max);
     }
-
-
 
     //O(n), space: O(logn), worst: O(n)
 

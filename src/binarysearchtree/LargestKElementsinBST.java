@@ -1,3 +1,5 @@
+package binarysearchtree;
+
 import structures.TreeNode;
 
 import java.util.ArrayList;
@@ -5,9 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * Created by Christina on 2/20/16.
- */
 public class LargestKElementsinBST {
     //stack
 

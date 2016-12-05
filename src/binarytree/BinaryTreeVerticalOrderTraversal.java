@@ -14,7 +14,7 @@ public class BinaryTreeVerticalOrderTraversal {
 
     //O(n)
 
-    public List<List<Integer>> verticalOrderII(TreeNode root) {
+    public List<List<Integer>> verticalOrderBFS(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
 

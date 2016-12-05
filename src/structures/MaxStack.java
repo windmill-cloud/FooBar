@@ -1,44 +1,39 @@
+package structures;
+
 import java.util.Stack;
 
-/**
- * Created by Christina on 2/25/16.
- */
 public class MaxStack {
-    Stack<Long> stack = new Stack<>();
-    long max;
+    private Stack<Integer> stack;
+    private Stack<Integer> maxStack;
+
+    public MaxStack() {
+        stack = new Stack<>();
+        maxStack = new Stack<>();
+    }
 
     public void push(int x) {
-        if (stack.isEmpty()) {
-            stack.push(0L);
-            max = x;
-        } else {
-            stack.push(x - max);
-            if (x > max) {
-                max = x;
-            }
+        stack.push(x);
+        if (maxStack.empty() || x >= maxStack.peek()) {//we only push x into minStack when it's <= minStack.peek()
+            maxStack.push(x);
         }
     }
 
     public void pop() {
-        if (stack.isEmpty()) return;
-        long pop = stack.pop();
-        if (pop > 0) {
-            max -= pop;
+        if (stack.empty()) {//remember to check whether the stack is empty
+            return;
         }
+        if (stack.peek().equals(maxStack.peek())) {//use equals, not == !!!
+            maxStack.pop();
+        }
+        stack.pop();
     }
 
     public int top() {
-        if (stack.isEmpty()) return -1;
-        long top = stack.peek();
-        if (top < 0) {
-            return (int) (top + max);
-        } else {
-            return (int) (max);
-        }
+        return stack.peek();
     }
 
     public int getMax() {
-        return (int)max;
+        return maxStack.peek();
     }
 
     public static void main(String[] arg) {

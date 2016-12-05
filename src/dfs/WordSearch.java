@@ -1,10 +1,8 @@
 package dfs;
 
-/**
- * Created by Christina on 2/25/16.
- */
 public class WordSearch {
-    //m * n * length
+    //dfs backtracking solution: O(4^n) time, O(n) stack space, n is word.length
+
     private final int[][] move = new int[][]{{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
     public boolean exist(char[][] board, String word) {
         if (board.length == 0 || board[0].length == 0 || word.length() == 0) {return false;}
@@ -17,7 +15,9 @@ public class WordSearch {
     }
 
     private boolean dfs(char[][] board, char[] word, int idx, int x, int y) {
-        if (idx >= word.length) {return true;}
+        if (idx >= word.length) { // All chars found
+            return true;
+        }
         if (x < 0 || y < 0 || x >= board.length || y >= board[0].length || board[x][y] != word[idx]) {return false;}
         char c = board[x][y];
         board[x][y] = '-';

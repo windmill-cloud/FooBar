@@ -25,7 +25,7 @@ public class BSTToSortedDoublyLinkedList {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             tail.next = new DoublyLinkedList(node.val);
-            tail.next.pre = tail;
+            tail.next.prev = tail;
             tail = tail.next;
 
             node = node.right;
@@ -34,7 +34,7 @@ public class BSTToSortedDoublyLinkedList {
                 node = node.left;
             }
         }
-        head.pre = tail;
+        head.prev = tail;
         tail.next = head;
         return head;
     }
@@ -101,7 +101,7 @@ public class BSTToSortedDoublyLinkedList {
 
     public static class DoublyLinkedList {
         int val;
-        DoublyLinkedList pre;
+        DoublyLinkedList prev;
         DoublyLinkedList next;
 
         public DoublyLinkedList(int val) {

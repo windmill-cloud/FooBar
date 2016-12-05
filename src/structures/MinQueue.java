@@ -19,6 +19,7 @@ public class MinQueue {
 
     private Queue<Integer> queue = new LinkedList<>();
     private Deque<Integer> min = new ArrayDeque<>();
+
     public void offer(int val) {
         while (!min.isEmpty() && min.peekLast() > val) {
             min.pollLast();
@@ -26,6 +27,7 @@ public class MinQueue {
         queue.offer(val);
         min.offer(val);
     }
+
     public int poll() {
         int result = queue.poll();
         if (result == min.peek()) {
@@ -33,9 +35,9 @@ public class MinQueue {
         }
         return result;
     }
+
     public int getMin() {
         return min.peek();
     }
-
 
 }

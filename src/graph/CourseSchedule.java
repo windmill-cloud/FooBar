@@ -3,34 +3,30 @@ package graph;
 import java.util.*;
 
 public class CourseSchedule {
+    //bfs solution with topological sort
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        int[][] matrix = new int[numCourses][numCourses]; // i -> j
-        int[] indegree = new int[numCourses];
-
-        for (int i = 0; i < prerequisites.length; i++) {
-            int ready = prerequisites[i][0];
-            int pre = prerequisites[i][1];
-            if (matrix[pre][ready] == 0)
-                indegree[ready]++; //duplicate case
-            matrix[pre][ready] = 1;
+        ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+        int[] inDegrees = new int[numCourses];
+        for (int i = 0; i < numCourses; i++) graph.add(new ArrayList<>());//initialization
+        for (int[] pair : prerequisites) {//bulid the graph by using pair[1] as indices, add all pair[0] to that indexed array
+            graph.get(pair[1]).add(pair[0]);
+            inDegrees[pair[0]]++;//which means we go to pair[0] once
         }
-
-        int count = 0;
         Queue<Integer> queue = new LinkedList<>();
-        for (int i=0; i<indegree.length; i++) {
-            if (indegree[i] == 0) queue.offer(i);
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegrees[i] == 0) queue.offer(i);//ints that have 0 indegree are entrances, put them into the queue
         }
         while (!queue.isEmpty()) {
-            int course = queue.poll();
-            count++;
-            for (int i=0; i<numCourses; i++) {
-                if (matrix[course][i] != 0) {
-                    if (--indegree[i] == 0)
-                        queue.offer(i);
-                }
+            int i = queue.poll();
+            for (int j : graph.get(i)) {//iterate every course j that comes out from prerequisites course i
+                inDegrees[j]--;
+                if (inDegrees[j] == 0) queue.offer(j);//indegree == 0 means this course can be the next entrance now
             }
         }
-        return count == numCourses;
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegrees[i] != 0) return false;//check whether cycle exists
+        }
+        return true;
     }
 
     public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
@@ -72,45 +68,31 @@ public class CourseSchedule {
         return true;
     }
 
-    public int[] courseSchedule(int numCourses, int[][] prerequisites) {
-        List<Set<Integer>> adjLists = new ArrayList<>();
-        for (int i = 0; i < numCourses; i++) {
-            adjLists.add(new HashSet<>());
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+        int[] inDegrees = new int[numCourses];
+        ArrayList<Integer> list = new ArrayList<>();//need a list to store the results
+        for (int i = 0; i < numCourses; i++) graph.add(new ArrayList<>());
+        for (int[] pair : prerequisites) {
+            graph.get(pair[1]).add(pair[0]);
+            inDegrees[pair[0]]++;
         }
-
-        for (int[] prerequisite : prerequisites) {
-            adjLists.get(prerequisite[1]).add(prerequisite[0]);
-        }
-
-        int[] indegrees = new int[numCourses];
-        for (int i = 0; i < numCourses; i++) {
-            for (int x : adjLists.get(i)) {
-                indegrees[x]++;
-            }
-        }
-
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
-            if (indegrees[i] == 0) {
-                queue.offer(i);
-            }
+            if (inDegrees[i] == 0) queue.offer(i);
         }
-
-        int[] res = new int[numCourses];
-        int count = 0;
         while (!queue.isEmpty()) {
-            int cur = queue.poll();
-            for (int x : adjLists.get(cur)) {
-                indegrees[x]--;
-                if (indegrees[x] == 0) {
-                    queue.offer(x);
-                }
+            int i = queue.poll();
+            list.add(i);//add the results to the list when they are polled out
+            for (int j : graph.get(i)) {
+                inDegrees[j]--;
+                if (inDegrees[j] == 0) queue.offer(j);
             }
-            res[count++] = cur;
         }
-
-        if (count == numCourses) return res;
-        return new int[0];
+        if (list.size() != numCourses) return new int[0];//use list.size() != numCourses to determine whether cycle exists
+        int[] res = new int[list.size()];
+        for (int i = 0; i < res.length; i++) res[i] = list.get(i);//convert arraylist to int[]
+        return res;
     }
 
     public static void main(String[] args) {

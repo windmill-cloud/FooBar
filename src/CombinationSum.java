@@ -182,8 +182,9 @@ public class CombinationSum {
         return dp[target];
     }
 
+
     public static void main(String[] args){
-        int[] nums = {1,2,3};
+        int[] nums = {1,3,2};
         int res = combinationSum4Unique(nums, 4);
         System.out.println();
     }

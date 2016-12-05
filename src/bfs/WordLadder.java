@@ -3,6 +3,7 @@ package bfs;
 import java.util.*;
 
 public class WordLadder {
+
     public static int ladderLength(String begin, String end, Set<String> wordDict) {
         if(wordDict == null || wordDict.size() == 0) return 0;
 

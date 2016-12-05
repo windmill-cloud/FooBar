@@ -11,26 +11,40 @@ public class LetterCombinationsofaPhoneNumber {
     private String[] phone = new String[]{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public List<String> letterCombinations(String digits) {
-        if (digits.length() == 0) return new ArrayList<>();
-        List<String> rst = new ArrayList<>();
-        String curr = phone[digits.charAt(0) - '0'];
-        if (digits.length() == 1 || digits.length() == 2 && digits.charAt(1) == '1') {
-            for (int i = 0; i < curr.length(); i++) {
-                rst.add(curr.charAt(i) + "");
-            }
-        } else {
-            List<String> nextList = letterCombinations(digits.substring(1, digits.length()));
-            for (int i = 0; i < curr.length(); i++) {
-                for (int j = 0; j < nextList.size(); j++) {
-                    rst.add(curr.charAt(i) + nextList.get(j));
-                }
+        LinkedList<String> ans = new LinkedList<String>();
+        String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        ans.add("");
+        for(int i =0; i<digits.length();i++){
+            int x = Character.getNumericValue(digits.charAt(i));
+            while(ans.peek().length()==i){
+                String t = ans.remove();
+                for(char s : mapping[x].toCharArray())
+                    ans.add(t+s);
             }
         }
-        return rst;
+        return ans;
+    }
+/*
+    public List<String> letterCombinationsBFS(String digits, Map<Integer, int[]> map) {
+        Queue<StringBuilder> q = new LinkedList<StringBuilder>();
+        ans.add(new StringBuilder());
+        for(int i =0; i<digits.length();i++){
+            int cur = Character.getNumericValue(digits.charAt(i));
+            while(ans.peek().length()==i){
+                String t = ans.remove();
+                for(char s : mapping[x].toCharArray())
+                    ans.add(t+s);
+            }
+        }
+
+        List<String> ans = new ArrayList<>();
+
+        return ans;
     }
 
+*/
     public List<String> letterCombinationsII(String digits) {
-        List<String> ans = new ArrayList<String>();
+        List<String> ans = new ArrayList<>();
 
         if (digits == null || digits.length() == 0) {
             return ans;
