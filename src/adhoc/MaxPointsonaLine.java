@@ -1,9 +1,7 @@
+package adhoc;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Christina on 3/3/16.
- */
 public class MaxPointsonaLine {
 
     //O(n ^ 2)
@@ -40,6 +38,13 @@ public class MaxPointsonaLine {
         return globalMax;
     }
 
+    static class Point{
+        int x, y;
+        public Point(int x, int y){
+            this.x = x;
+            this.y = y;
+        }
+    }
     public static void main(String[] arg) {
         MaxPointsonaLine a = new MaxPointsonaLine();
         System.out.println(a.maxPoints(new Point[]{new Point(2, 3), new Point(3, 3), new Point(-5, 3)}));
