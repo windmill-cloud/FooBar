@@ -86,4 +86,26 @@ public class CloneGraph {
         }
         return new ArrayList<>(set);
     }
+
+    public static class UndirectedGraph{
+        List<UndirectedGraphNode> nodes;
+        public UndirectedGraph(){
+            nodes = new ArrayList<>();
+        }
+
+        public void add(UndirectedGraphNode node){
+            nodes.add(node);
+        }
+    }
+
+    public static UndirectedGraph deepCopy(UndirectedGraph g){
+        UndirectedGraph ans = new UndirectedGraph();
+        if(g == null) return ans;
+
+        for(int i = 0; i < g.nodes.size(); i++){
+            UndirectedGraphNode newNode = cloneGraph(g.nodes.get(i));
+            ans.nodes.add(newNode);
+        }
+        return ans;
+    }
 }

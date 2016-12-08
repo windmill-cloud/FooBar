@@ -58,7 +58,8 @@ another link-same question: http://www.1point3acres.com/bbs/forum.php?mod=viewth
     }
 
     // Iterative way
-    // Use a hashmap to record the parent of every node. Do BFS and record the most left node and most right node of every level.
+    // Use a hashmap to record the parent of every node.
+    // Do BFS and record the most left node and most right node of every level.
     // Then we have most left and right node of last level.
     // Search into the hashmap util we find the same parent which is the lca.
     //'Time complexity: O(n), space complexity: O(n)--hashmap has all the node'

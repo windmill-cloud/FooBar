@@ -2,10 +2,7 @@ package binarytree;
 
 import structures.TreeNode;
 
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  *          8
@@ -15,6 +12,8 @@ import java.util.Queue;
  *
  * bfs
  *
+ * How many elements in the list?
+ * L = 2 * T + 1
  *
  * */
 
@@ -188,8 +187,61 @@ public class SerializeandDeserializeBinaryTree {
         }
     }
 
+
+    public static List<Integer> serializeToList(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        if (root == null) return ans;
+        //StringBuilder rst = new StringBuilder();
+        Queue<TreeNode> que = new LinkedList<>();
+        que.add(root);
+        while (!que.isEmpty()) {
+            int size = que.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode currTree = que.poll();
+                if(currTree == null) {
+                    ans.add(null);
+                    continue;
+                }
+                ans.add(currTree.val);
+                que.add(currTree.left);
+                que.add(currTree.right);
+            }
+        }
+        return ans;
+    }
+
+
+    // Decodes your encoded data to tree.
+    public static TreeNode deserializeList(List<Integer> lst) {
+        if(lst.size() == 0) return null;
+        //String[] values = data.split(" ");
+        TreeNode root = new TreeNode(lst.get(0));
+        Queue<TreeNode> que = new LinkedList<>();
+        que.add(root);
+        for (int i = 1; i < lst.size(); i++) {
+            TreeNode currTree = que.poll();
+            if (!(lst.get(i) == null)) {
+                currTree.left = new TreeNode(lst.get(i));
+                que.add(currTree.left);
+            }
+            if (!(lst.get(++i) == null)) {
+                currTree.right = new TreeNode(lst.get(i));
+                que.add(currTree.right);
+            }
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
         SerializeandDeserializeBinaryTree a = new SerializeandDeserializeBinaryTree();
 
+        List<Integer> lst = new ArrayList<>();
+        lst.add(1);lst.add(2);lst.add(3);lst.add(null);lst.add(4);lst.add(null);lst.add(null);
+        lst.add(null);lst.add(null);
+
+        TreeNode root = deserializeList(lst);
+        List<Integer> ans = serializeToList(root);
+
+        System.out.println();
     }
 }
