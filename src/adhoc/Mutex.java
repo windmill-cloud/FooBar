@@ -1,3 +1,5 @@
+package adhoc;
+
 import java.util.concurrent.Semaphore;
 
 public class Mutex {
