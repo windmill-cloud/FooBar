@@ -8,9 +8,10 @@ import java.util.Set;
  * Created by xuanwang on 11/16/16.
  */
 public class CheckDuplicatesExistsInWindowK {
-    //大家都在问第一题，大概是这个意思：给一个array, 然后给一个k, 让你check 连续的k个integer是否含有dulplicate, 很简单的，用窗口为K的hashset一直扫一遍就行了，很简单
+    // 大家都在问第一题，大概是这个意思：给一个array, 然后给一个k,
+    // 让你check 连续的k个integer是否含有dulplicate, 很简单的，用窗口为K的hashset一直扫一遍就行了，很简单
 
-    //HashSet
+    // HashSet
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         Set<Integer> window = new HashSet<>();
         int low = 0;

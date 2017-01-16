@@ -1,6 +1,5 @@
-/**
- * Created by Christina on 2/16/16.
- */
+package binarysearch;
+
 public class GetPeakOrValeyIndex {
 
     /**

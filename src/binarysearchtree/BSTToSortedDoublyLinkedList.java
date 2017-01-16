@@ -101,8 +101,8 @@ public class BSTToSortedDoublyLinkedList {
 
     public static class DoublyLinkedList {
         int val;
-        DoublyLinkedList prev;
-        DoublyLinkedList next;
+        public DoublyLinkedList next;
+        public DoublyLinkedList prev;
 
         public DoublyLinkedList(int val) {
             this.val = val;

@@ -14,7 +14,7 @@ public class GroupContact {
      *
      * */
     public static void main(String[] args) {
-        HashMap<String, Integer> h = new HashMap();
+        HashMap<String, Integer> h = new HashMap<>();
 
         String[][] A = {{"John", "john@gmail.com", "john@fb.com"},
                 {"Dan", "dan@gmail.com", "+1234567"},

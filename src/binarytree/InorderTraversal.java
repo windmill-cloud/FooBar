@@ -1,12 +1,11 @@
+package binarytree;
+
 import structures.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * Created by Christina on 2/23/16.
- */
 public class InorderTraversal {
 
     //Stack

@@ -40,6 +40,7 @@ public class _4Sum {
     public List<List<Integer>> fourSum1(int[] nums, int target) {
         List<List<Integer>> ret = new ArrayList<>();
         Arrays.sort(nums);
+        //number, frequency
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], map.containsKey(nums[i]) ? map.get(nums[i]) + 1 : 1);

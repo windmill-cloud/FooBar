@@ -15,6 +15,7 @@ public class DistinctSubsequence {
     S = "rabbbit", T = "rabbit"
 
     Return 3.
+    O(m * n), O(m)
     */
     public int numDistinct(String s, String t) {
         if (s == null || t == null) return 0;

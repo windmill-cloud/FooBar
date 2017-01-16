@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 // maximum product of k elements
-public class MaximumKProduct {
+public class MaximumProductOfKElements {
 
     //-1,-2,-3,-9, 9, 8, 7
     public long maxK_Product(Integer[] num, int k){
@@ -44,7 +44,7 @@ public class MaximumKProduct {
 
 
     public static void main(String[] arg) {
-        MaximumKProduct a = new MaximumKProduct();
+        MaximumProductOfKElements a = new MaximumProductOfKElements();
         System.out.println(a.maxK_Product(new Integer[]{-1, -2, -3, -9, 9, 8, 7, 0}, 3));
         return;
     }

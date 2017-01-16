@@ -36,7 +36,6 @@ public class SumExistsInSubarraySubmatrix {
         return false;
     }
 
-
     //m^2 * n^2
     public boolean subMatrix (int[][] matrix, int target) {
         if(matrix.length == 0 || matrix[0].length == 0) {

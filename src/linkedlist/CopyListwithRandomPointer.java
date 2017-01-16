@@ -1,9 +1,8 @@
+package linkedlist;
+
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Christina on 2/29/16.
- */
 public class CopyListwithRandomPointer {
 //    /**
 //     * Definition for singly-linked list with a random pointer.

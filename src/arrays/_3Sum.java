@@ -32,12 +32,13 @@ public class _3Sum {
         }
         return ans;
     }
-    // ================================ hashtables without sort (dups may exist): O(n^2) time, O(n) space ============================
+    // ======= hashtables without sort (dups may exist): O(n^2) time, O(n) space ===============
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length < 3) {
             return res;
         }
+        //Number, frequency
         HashMap<Integer, Integer> map = new HashMap<>();
         HashSet<String> set = new HashSet<>();//use this to store keys of combinations of 3nums that have been added to res
         for (int i : nums) {//counting sort, store the nums and their occurrences

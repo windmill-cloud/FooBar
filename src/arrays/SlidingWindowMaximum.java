@@ -26,7 +26,9 @@ public class SlidingWindowMaximum {
     /*
     Explanation
 
-    The basic idea is referred from here: use two-ends deque to make the first element in the deque is the largest number in the window, and keep the above steps recursively.
+    The basic idea is referred from here:
+    use two-ends deque to make the first element in the deque
+    is the largest number in the window, and keep the above steps recursively.
 
     Time complexity is O(n), as each number in the array is only offered or polled once.
     */

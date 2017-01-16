@@ -28,7 +28,6 @@ public class CombinationSum {
         Arrays.sort(nums);
         helper(ans, new ArrayList<Integer>(), nums, target, 0);
         return ans;
-
     }
 
     private void helper(List<List<Integer>> ans, List<Integer> temp, int[] nums, int remain, int start){
@@ -44,7 +43,6 @@ public class CombinationSum {
             helper(ans, temp, nums, remain-nums[i], i);
             temp.remove(temp.size()-1);
         }
-
     }
 
     // each number can only be used once

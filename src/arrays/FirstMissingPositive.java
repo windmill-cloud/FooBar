@@ -5,10 +5,11 @@ package arrays;
  */
 public class FirstMissingPositive {
     /*
-    Put each number in its right place.
+    Put each number in its correct place.
     For example:
     When we find 5, then swap it with A[4].
-    At last, the first place where its number is not right, return the place + 1.
+    At last, the first place where its number is not correct, return the place + 1.
+    
     */
 
     public int firstMissingPositive(int[] nums) {
